@@ -2,10 +2,10 @@
 
 header("Access-Control-Allow-Origin: *");
 
-$jobId= 42;
+$jobId= 44;
 if(isset($_POST["display"]))
 {
-    echo "le titre";
+    echo $jobId;
 }
 
 if(isset($_POST["button"]))
