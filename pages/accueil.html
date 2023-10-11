@@ -11,10 +11,7 @@
 </head>
 <body>
     <header>
-        <h1>NextGen</h1>
-
-        <img src="image/jardin.jpg">
-
+        <img src="image/HYde.png" style="width: 12%;">
         <a href="sign-in.html" class="btn btn-primary">Sign In</a>
         <a href="sign-up.html" class="btn btn-primary">Sign Up</a>
     </header>
@@ -41,7 +38,7 @@
                 </ul>
                 <form class="d-flex" role="search">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
+                  <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
               </div>
             </div>
@@ -59,12 +56,32 @@
 
                     <button>Learn More</button>
 
-                    <button>Apply</button>
-
+                    <button onclick="toggleForm('form1')">Apply</button>
+                    <form id="form1" style="display: none;">
+                      <div class="form-floating mb-4">
+                        <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
+                        <label class="form-label" for="username">Username</label>
+                      </div>
+                      <div class="form-floating mb-4">
+                        <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
+                        <label class="form-label" for="username">Username</label>
+                      </div>
+                      <div class="form-floating mb-4">
+                        <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
+                        <label class="form-label" for="username">Username</label>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>
+                      <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+                      </div>
+                    </form>
                 </div>
             
                 
-                
+
                 <div>
                     <h2>Anonnce 2</h2>
 
@@ -139,6 +156,15 @@
 
         </div> 
     </main>
-
+    <script>
+      function toggleForm(formId) {
+          var form = document.getElementById(formId);
+          if (form.style.display === 'none' || form.style.display === '') {
+              form.style.display = 'block';
+          } else {
+              form.style.display = 'none';
+          }
+      }
+  </script>
 
 </body>
