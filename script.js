@@ -1,17 +1,27 @@
 let learnMore= document.querySelector("div button")
 let jobId= document.getElementById("jobId")
-learnMore.addEventListener('click', function(){
-   
 
-    jobId= "42";
+$(document).ready(function(){
+    let valueJobId= $("#jobId").text()
 
-    fetch("script.php"+ encodeURIComponent(jobId),{
-        method: "GET"
-    }).then((r)=> {return r.json()})
-    .then((body)=> {
-        fullDescription= document.createElement("p");
-        fullDescription.innerText= body;
-        document.querySelector("div").appendChild(fullDescription);
-    })
+    learnMore.addEventListener('click', function(){
 
-});
+    let formData= new FormData();
+    formData.append("jobId", valueJobId);
+    console.log(jobId)
+
+        fetch("http://localhost/Nextgen-Indeed/script.php",{
+            method: "POST",
+            body: formData,
+            mode: "cors"
+        }).then((r)=> { return r.text()
+        }).then((body)=> {
+            console.log(body)
+            fullDescription= document.createElement("p");
+            fullDescription.innerText= body;
+            document.querySelector("div").appendChild(fullDescription);
+        })
+
+    });
+
+})

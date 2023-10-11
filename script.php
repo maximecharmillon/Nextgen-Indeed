@@ -1,9 +1,20 @@
 <?php
-    if(isset($GET["jobId"]))
+
+header("Access-Control-Allow-Origin: *");
+
+if(isset($_POST["jobId"]))
+{
+
+    $job= $_POST["jobId"];
+
+    if($job== "42")
     {
-        if(($GET["jobId"])== 42)
-        {
-            echo "bonjour";
-        }
+        echo "bonjour";
     }
+    else{
+        echo "il a pas dit bonjour";
+    }
+    
+}
+    
 ?>
