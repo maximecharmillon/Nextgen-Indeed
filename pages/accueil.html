@@ -10,249 +10,221 @@
 
 </head>
 <body>
-    <header>
-        <img src="image/HYde.png" style="width: 12%;">
-        <a href="sign-in.html" class="btn btn-primary" style="background-color: #2596BE;">Sign In</a>
-        <a href="sign-up.html" class="btn btn-primary" style="background-color: #2596BE;">Sign Up</a>
+    <header class="d-flex justify-content-end" style="width: 100%; gap: 1.6%;">
+      <a href="sign-in.html" class="btn border-none" style="background-color: #2596BE; color: white; height: 5%;">Sign In</a>
+      <a href="sign-up.html" class="btn border-none" style="background-color: #2596BE; color: white; height: 5%;">Sign Up</a>
     </header>
 
     <main>
+      
+      <nav class="navbar border-none">
+        <div class="container-fluid">
+          <img src="image/HYde.png" style="width: 11%;">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="Nextgen">Nextgen</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">See all job announces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">See my annouces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Create an announce</a>
+                </li>
+              </ul>
+              <form class="d-flex mt-3" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="">See all job announces</a>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Profile</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">See my annouces</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Create an announce</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-primary" type="submit">Search</button>
-                </form>
+      <div class="col">
+        <div class="d-flex row justify-content-center" style="gap:2%;">
+          <div class="card mb-3" style="width: 25%; background-color: #F0F3F4;">
+            <h2>Anonnce 1</h2>
+            <p>Short description</p>
+            <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
+            <button onclick="toggleForm('form1')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <form id="form1" style="display: none;">
+              <div class="form-floating mb-4">
+                <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
+                <label class="form-label" for="username">Username</label>
               </div>
-            </div>
-          </nav>
-          
-
-
-        <div class="ad_container">
-
-            <div>
-                <div class="card" style="width: 25%;">
-                  <h2>Anonnce 1</h2>
-
-                  <p>Short description</p>
-
-                  <button class="btn btn-primary" style="background-color: #2596BE;">Learn More</button>
-
-                  <button onclick="toggleForm('form1')" class="btn btn-primary" style="background-color: #2596BE;">Apply</button>
-                  <form id="form1" style="display: none;">
-                    <div class="form-floating mb-4">
-                      <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
-                      <label class="form-label" for="username">Username</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
-                      <label class="form-label" for="email">Email</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
-                      <label class="form-label" for="phone">Phone number</label>
-                    </div>
-                    <div class="form-floating">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                      <label for="floatingTextarea2">Message</label>
-                    </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary" style="background-color: #2596BE;" type="submit">Submit form</button>
-                    </div>
-                  </form>
-                </div>
-            
-                
-
-                <div>
-                  <h2>Anonnce 2</h2>
-
-                  <p>Short description</p>
-
-                  <button class="btn btn-primary" style="background-color: #2596BE;">Learn More</button>
-
-                  <button onclick="toggleForm('form2')" class="btn btn-primary" style="background-color: #2596BE;">Apply</button>
-                  <form id="form2" style="display: none;">
-                    <div class="form-floating mb-4">
-                      <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
-                      <label class="form-label" for="username">Username</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
-                      <label class="form-label" for="email">Email</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
-                      <label class="form-label" for="phone">Phone number</label>
-                    </div>
-                    <div class="form-floating">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                      <label for="floatingTextarea2">Message</label>
-                    </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary" style="background-color: #2596BE;" type="submit">Submit form</button>
-                    </div>
-                  </form>
-                </div>
-            </div>
-            
-            
-            <div>
-                <div>
-                  <h2>Anonnce 3</h2>
-
-                  <p>Short description</p>
-
-                  <button class="btn btn-primary" style="background-color: #2596BE;">Learn More</button>
-
-                  <button onclick="toggleForm('form3')" class="btn btn-primary" style="background-color: #2596BE;">Apply</button>
-                  <form id="form3" style="display: none;">
-                    <div class="form-floating mb-4">
-                      <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
-                      <label class="form-label" for="username">Username</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
-                      <label class="form-label" for="email">Email</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
-                      <label class="form-label" for="phone">Phone number</label>
-                    </div>
-                    <div class="form-floating">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                      <label for="floatingTextarea2">Message</label>
-                    </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary" style="background-color: #2596BE;" type="submit">Submit form</button>
-                    </div>
-                  </form>
-                </div>
-                
-                
-                
-                <div>
-                  <h2>Anonnce 4</h2>
-
-                  <p>Short description</p>
-
-                  <button class="btn btn-primary" style="background-color: #2596BE;">Learn More</button>
-
-                  <button onclick="toggleForm('form4')" class="btn btn-primary" style="background-color: #2596BE;">Apply</button>
-                  <form id="form4" style="display: none;">
-                    <div class="form-floating mb-4">
-                      <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
-                      <label class="form-label" for="username">Username</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
-                      <label class="form-label" for="email">Email</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
-                      <label class="form-label" for="phone">Phone number</label>
-                    </div>
-                    <div class="form-floating">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                      <label for="floatingTextarea2">Message</label>
-                    </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary" style="background-color: #2596BE;" type="submit">Submit form</button>
-                    </div>
-                  </form>
-                </div>
-            </div>
-            
-            
-            <div>
-                <div>
-                  <h2>Anonnce 5</h2>
-
-                  <p>Short description</p>
-
-                  <button class="btn btn-primary" style="background-color: #2596BE;">Learn More</button>
-
-                  <button onclick="toggleForm('form5')" class="btn btn-primary" style="background-color: #2596BE;">Apply</button>
-                  <form id="form5" style="display: none;">
-                    <div class="form-floating mb-4">
-                      <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
-                      <label class="form-label" for="username">Username</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
-                      <label class="form-label" for="email">Email</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
-                      <label class="form-label" for="phone">Phone number</label>
-                    </div>
-                    <div class="form-floating">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                      <label for="floatingTextarea2">Message</label>
-                    </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary" style="background-color: #2596BE;" type="submit">Submit form</button>
-                    </div>
-                  </form>
-                </div>
-                
-                
-                
-                <div>
-
-                  <h2>Anonnce 6</h2>
-
-                  <p>Short description</p>
-
-                  <button class="btn btn-primary" style="background-color: #2596BE;">Learn More</button>
-
-                  <button onclick="toggleForm('form6')" class="btn btn-primary" style="background-color: #2596BE;">Apply</button>
-                  <form id="form6" style="display: none;">
-                    <div class="form-floating mb-4">
-                      <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
-                      <label class="form-label" for="username">Username</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
-                      <label class="form-label" for="email">Email</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                      <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
-                      <label class="form-label" for="phone">Phone number</label>
-                    </div>
-                    <div class="form-floating">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                      <label for="floatingTextarea2">Message</label>
-                    </div>
-                    <div class="col-12">
-                      <button class="btn btn-primary" style="background-color: #2596BE;" type="submit">Submit form</button>
-                    </div>
-                  </form>
-                </div>
-            </div>
-            
-
-
-        </div> 
-    </main>
-    <script src="script/Apply.js"></script>
+              <div class="form-floating mb-4">
+                <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
+                <label class="form-label" for="email">Email</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
+                <label class="form-label" for="phone">Phone number</label>
+              </div>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Message</label>
+              </div>
+              <div class="col-12">
+                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+              </div>
+            </form>
+          </div>
+              
+          <div class="card mb-3" style="width: 25%;">
+            <h2>Anonnce 2</h2>
+            <p>Short description</p>
+            <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
+            <button onclick="toggleForm('form2')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <form id="form2" style="display: none;">
+              <div class="form-floating mb-4">
+                <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
+                <label class="form-label" for="username">Username</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
+                <label class="form-label" for="email">Email</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
+                <label class="form-label" for="phone">Phone number</label>
+              </div>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Message</label>
+              </div>
+              <div class="col-12">
+                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+              </div>
+            </form>
+          </div>
+              
+          <div class="card mb-3" style="width: 25%;">
+            <h2>Anonnce 3</h2>
+            <p>Short description</p>
+            <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
+            <button onclick="toggleForm('form3')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <form id="form3" style="display: none;">
+              <div class="form-floating mb-4">
+                <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
+                <label class="form-label" for="username">Username</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
+                <label class="form-label" for="email">Email</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
+                <label class="form-label" for="phone">Phone number</label>
+              </div>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Message</label>
+              </div>
+              <div class="col-12">
+                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+              </div>
+            </form>
+          </div>
+                     
+          <div class="card mb-3" style="width: 25%;">
+            <h2>Anonnce 4</h2>
+            <p>Short description</p>
+            <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
+            <button onclick="toggleForm('form4')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <form id="form4" style="display: none;">
+              <div class="form-floating mb-4">
+                <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
+                <label class="form-label" for="username">Username</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
+                <label class="form-label" for="email">Email</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
+                <label class="form-label" for="phone">Phone number</label>
+              </div>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Message</label>
+              </div>
+              <div class="col-12">
+                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+              </div>
+            </form>
+          </div>
+               
+          <div class="card mb-3" style="width: 25%;">
+            <h2>Anonnce 5</h2>
+            <p>Short description</p>
+            <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
+            <button onclick="toggleForm('form5')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <form id="form5" style="display: none;">
+              <div class="form-floating mb-4">
+                <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
+                <label class="form-label" for="username">Username</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
+                <label class="form-label" for="email">Email</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
+                <label class="form-label" for="phone">Phone number</label>
+              </div>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Message</label>
+              </div>
+              <div class="col-12">
+                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+              </div>
+            </form>
+          </div>
+                  
+          <div class="card mb-3" style="width: 25%;">
+            <h2>Anonnce 6</h2>
+            <p>Short description</p>
+            <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
+            <button onclick="toggleForm('form6')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <form id="form6" style="display: none;">
+              <div class="form-floating mb-4">
+                <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
+                <label class="form-label" for="username">Username</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
+                <label class="form-label" for="email">Email</label>
+              </div>
+              <div class="form-floating mb-4">
+                <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
+                <label class="form-label" for="phone">Phone number</label>
+              </div>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Message</label>
+              </div>
+              <div class="col-12">
+                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </main>
+  <script src="script/Apply.js"></script>
 
 </body>
+</html>
