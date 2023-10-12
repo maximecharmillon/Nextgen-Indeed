@@ -13,40 +13,32 @@
         <img src="image/HYde.png" style="width: 11%; float: top-left;">
     </header>
     <main>
-        <nav class="navbar mb-3" style="background-color: #F0F3F4DE;">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-md navbar-light" id="navbar-example2" style="background-color: #F0F3F4DE;">
+            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="Nextgen">Nextgen</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="Profile.html">Profile</a>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link active" aria-current="page" href="Profile.html">Profile</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="accueil.html">See all job announces</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="accueil.html">See all job announces</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">See my annouces</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">See my annouces</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Create an announce</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Create an announce</a>
                     </li>
-                  </ul>
-                  <form class="d-flex mt-3" role="search">
+                </ul>
+                <form class="d-flex mt-3" role="search" style="margin-left: 50%;">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Search</button>
-                  </form>
-                </div>
-              </div>
+                </form>
             </div>
         </nav>
-        <div class="container">
+        <div class="container py-5">
             <div class="row">
                 <div class="col-lg-4" style="margin-left: 30%;">
                     <div class="card mb-4 mt-5" style="margin-left: 40%;">
@@ -65,13 +57,13 @@
 
             <div class="col-lg-8" style="margin-left: 20%;">
                 <div class="card mb-4" style="background-color: #F0F3F4DE;">
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <div class="row">
                             <div class="col-sm-3">
                                 <p class="mb-0">Full Name</p>
                             </div>
                         <div class="col-sm-9">
-                            <p class="text-muted mb-0">??????</p>
+                            <p class="text-muted mb-0">?????????</p>
                         </div>
                     </div>
                     <hr>
@@ -98,9 +90,44 @@
                         <p class="mb-0">Address</p>
                     </div>
                         <div class="col-sm-9">
-                            <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                            <p class="text-muted mb-0">????????????</p>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-lg-15">
+                <div class="card" style="background-color: #F0F3F4DE;">
+                    <h2 class="mb-3 text-center">Job</h2>
+                    <ul class="nav" style="justify-content: space-around;">
+                        <li class="nav-item">
+                            <h3>registered offers</h3>
+                            <p>The job offers you register are displayed here.</p>
+                            <ul class="list-group">
+                                <li class="list-group-item mb-3">An item</li>
+                                <li class="list-group-item mb-3">A second item</li>
+                                <li class="list-group-item mb-3">A third item</li>
+                                <li class="list-group-item mb-3">A fourth item</li>
+                                <li class="list-group-item mb-3">A fifth one</li>
+                                <li class="list-group-item mb-3">A sixth one</li>
+                                <li class="list-group-item mb-3">A seventh one</li>
+                                <li class="list-group-item mb-3">A eigth one</li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <h3>Applications sent</h3>
+                            <p>Use this section to keep track of your applications.</p>
+                            <ul class="list-group">
+                                <li class="list-group-item mb-3">An item</li>
+                                <li class="list-group-item mb-3">A second item</li>
+                                <li class="list-group-item mb-3">A third item</li>
+                                <li class="list-group-item mb-3">A fourth item</li>
+                                <li class="list-group-item mb-3">A fifth one</li>
+                                <li class="list-group-item mb-3">A sixth one</li>
+                                <li class="list-group-item mb-3">A seventh one</li>
+                                <li class="list-group-item mb-3">A eigth one</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
