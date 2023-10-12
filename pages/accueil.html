@@ -10,16 +10,18 @@
 
 </head>
 <body>
-    <header class="d-flex justify-content-end" style="width: 100%; gap: 1.6%;">
-      <a href="sign-in.html" class="btn border-none" style="background-color: #2596BE; color: white; height: 5%;">Sign In</a>
-      <a href="sign-up.html" class="btn border-none" style="background-color: #2596BE; color: white; height: 5%;">Sign Up</a>
+    <header class="d-flex mt-2" style="width: 100%; gap: 16%; align-items: center;">
+      <img src="image/HYde.png" style="width: 11%; float: top-left;">
+      <div style="margin-left: 64%; height: 20%;">
+        <a href="sign-in.html" class="btn border-none" style="background-color: #2596BE; color: white;">Sign In</a>
+        <a href="sign-up.html" class="btn border-none" style="background-color: #2596BE; color: white;">Sign Up</a>
+      </div>
     </header>
 
     <main>
       
-      <nav class="navbar border-none">
+      <nav class="navbar mb-3" style="background-color: #aae1f5b2;">
         <div class="container-fluid">
-          <img src="image/HYde.png" style="width: 11%;">
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -31,10 +33,10 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">See all job announces</a>
+                  <a class="nav-link" href="#">Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Profile</a>
+                  <a class="nav-link active" aria-current="page" href="#">See all job announces</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">See my annouces</a>
@@ -52,13 +54,14 @@
         </div>
       </nav>
 
-      <div class="col">
-        <div class="d-flex row justify-content-center" style="gap:2%;">
+      <div class="col container">
+        <img src="image/Job offers-bro.png" alt="job offers-bro" class="img-fluid mt-3" style="width: 30%; margin-left: 35%;">
+        <div class="d-flex row justify-content-center" style="gap:2%; margin-top: 8%;">
           <div class="card mb-3" style="width: 25%; background-color: #F0F3F4;">
             <h2>Anonnce 1</h2>
             <p>Short description</p>
             <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
-            <button onclick="toggleForm('form1')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <button onclick="toggleForm('form1')" class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Apply</button>
             <form id="form1" style="display: none;">
               <div class="form-floating mb-4">
                 <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
@@ -77,16 +80,16 @@
                 <label for="floatingTextarea2">Message</label>
               </div>
               <div class="col-12">
-                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+                <button class="btn border-none mb-3 mt-3" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
               </div>
             </form>
           </div>
               
-          <div class="card mb-3" style="width: 25%;">
+          <div class="card mb-3" style="width: 25%; background-color: #F0F3F4;">
             <h2>Anonnce 2</h2>
             <p>Short description</p>
             <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
-            <button onclick="toggleForm('form2')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <button onclick="toggleForm('form2')" class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Apply</button>
             <form id="form2" style="display: none;">
               <div class="form-floating mb-4">
                 <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
@@ -105,16 +108,16 @@
                 <label for="floatingTextarea2">Message</label>
               </div>
               <div class="col-12">
-                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+                <button class="btn border-none mb-3 mt-3" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
               </div>
             </form>
           </div>
               
-          <div class="card mb-3" style="width: 25%;">
+          <div class="card mb-3" style="width: 25%; background-color: #F0F3F4;">
             <h2>Anonnce 3</h2>
             <p>Short description</p>
             <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
-            <button onclick="toggleForm('form3')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <button onclick="toggleForm('form3')" class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Apply</button>
             <form id="form3" style="display: none;">
               <div class="form-floating mb-4">
                 <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
@@ -133,16 +136,16 @@
                 <label for="floatingTextarea2">Message</label>
               </div>
               <div class="col-12">
-                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+                <button class="btn border-none mb-3 mt-3" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
               </div>
             </form>
           </div>
                      
-          <div class="card mb-3" style="width: 25%;">
+          <div class="card mb-3" style="width: 25%; background-color: #F0F3F4;">
             <h2>Anonnce 4</h2>
             <p>Short description</p>
             <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
-            <button onclick="toggleForm('form4')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <button onclick="toggleForm('form4')" class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Apply</button>
             <form id="form4" style="display: none;">
               <div class="form-floating mb-4">
                 <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
@@ -161,16 +164,16 @@
                 <label for="floatingTextarea2">Message</label>
               </div>
               <div class="col-12">
-                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+                <button class="btn border-none mb-3 mt-3" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
               </div>
             </form>
           </div>
                
-          <div class="card mb-3" style="width: 25%;">
+          <div class="card mb-3" style="width: 25%; background-color: #F0F3F4;">
             <h2>Anonnce 5</h2>
             <p>Short description</p>
             <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
-            <button onclick="toggleForm('form5')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <button onclick="toggleForm('form5')" class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Apply</button>
             <form id="form5" style="display: none;">
               <div class="form-floating mb-4">
                 <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
@@ -189,16 +192,16 @@
                 <label for="floatingTextarea2">Message</label>
               </div>
               <div class="col-12">
-                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+                <button class="btn border-none mb-3 mt-3" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
               </div>
             </form>
           </div>
                   
-          <div class="card mb-3" style="width: 25%;">
+          <div class="card mb-3" style="width: 25%; background-color: #F0F3F4;">
             <h2>Anonnce 6</h2>
             <p>Short description</p>
             <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
-            <button onclick="toggleForm('form6')" class="btn btn-outline-dark" style="background-color: #2596BE; color: white;">Apply</button>
+            <button onclick="toggleForm('form6')" class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Apply</button>
             <form id="form6" style="display: none;">
               <div class="form-floating mb-4">
                 <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
@@ -217,7 +220,7 @@
                 <label for="floatingTextarea2">Message</label>
               </div>
               <div class="col-12">
-                <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+                <button class="btn border-none mb-3 mt-3" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
               </div>
             </form>
           </div>
