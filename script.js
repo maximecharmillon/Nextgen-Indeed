@@ -7,8 +7,10 @@ tmpForm.append("display", "display")
                 method: "POST",
                 mode: "cors",
                 body: tmpForm
-    }).then((r)=> { return r.text()
+    }).then((r)=> { return r.text();
+       
     }).then((body)=> {
+        console.log(body);
         let id= document.createElement("p");
         id.innerText= body;
 
