@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="accueil.css">
+    <title>Nextgen-Indeed</title>
+</head>
+<body>
+    <header class="d-flex mt-2" style="width: 100%; gap: 16%; align-items: center;">
+        <img src="image/HYde.png" style="width: 11%; float: top-left;">
+    </header>
+    <main>
+        <nav class="navbar mb-3" style="background-color: #F0F3F4DE;">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="Nextgen">Nextgen</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="Profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="accueil.html">See all job announces</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">See my annouces</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Create an announce</a>
+                    </li>
+                  </ul>
+                  <form class="d-flex mt-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Search</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4" style="margin-left: 30%;">
+                    <div class="card mb-4 mt-5" style="margin-left: 40%;">
+                        <div class="card-body text-center" style="background-color: #F0F3F4DE;">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                            <h5 class="my-3">Name</h5>
+                            <p class="text-muted mb-1">Occupation</p>
+                            <p class="text-muted mb-4">Adresse</p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <button type="button" class="btn btn-outline-dark ms-1" style="background-color: #2596BE; color: white;">Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8" style="margin-left: 20%;">
+                <div class="card mb-4" style="background-color: #F0F3F4DE;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Full Name</p>
+                            </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">??????</p>
+                        </div>
+                    </div>
+                    <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Email</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">example@example.com</p>
+                            </div>
+                        </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Mobile</p>
+                        </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">01 23 45 67 89</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Address</p>
+                    </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
