@@ -57,27 +57,50 @@
                     <span class="input-group-text">Description</span>
                     <textarea class="form-control" aria-label="With textarea"></textarea>
                 </div>
-                <div class="row mb-4">
-                    <div class="col">
-                        <select class="form-select mb-4" aria-label="Default select example">
-                            <option selected>Contract</option>
-                            <option value="1">Permanent contract</option>
-                            <option value="2">Temporary contract</option>
-                            <option value="3">Contract of apprenticeship</option>
-                            <option value="4">Internship</option>
-                        </select>
-                        <label for="salaryRange" class="form-label">Salary</label>
-                        <input type="range" class="form-range" min="0" max="10000" step="50" id="salaryRange" list="salaryValues">
-                        <datalist id="salaryValues">
-                            <option value="0">0</option>
-                            <option value="2000">2,000</option>
-                            <option value="4000">4,000</option>
-                            <option value="6000">6,000</option>
-                            <option value="8000">8,000</option>
-                            <option value="10000">10,000</option>
-                        </datalist>
-                        <p id="selectedSalary">Select a salary : $0/month</p>
+                    <select class="form-select mb-4" aria-label="Default select example">
+                        <option selected>Contract</option>
+                        <option value="1">Permanent contract</option>
+                        <option value="2">Temporary contract</option>
+                        <option value="3">Contract of apprenticeship</option>
+                        <option value="4">Internship</option>
+                    </select>
+                    <label for="salaryRange" class="form-label mb-3">Salary</label>
+                    <input type="range" class="form-range mb-3" min="0" max="10000" step="50" id="salaryRange" list="salaryValues">
+                    <datalist id="salaryValues">
+                        <option value="0">0</option>
+                        <option value="2000">2,000</option>
+                        <option value="4000">4,000</option>
+                        <option value="6000">6,000</option>
+                        <option value="8000">8,000</option>
+                        <option value="10000">10,000</option>
+                    </datalist>
+                    <p class="mb-3" id="selectedSalary">Select a salary : $0/month</p>
+                </div>
+                <div class = "col-lg-12 container mb-3">
+                    <label for="date" class="col-1 col-form-label">Date:</label>
+                    <input type="date" name="date">
+                </div>
+                <div class="container">
+                    <p>Schedules:</p>
+                    <div class="form-check form-check-inline mb-3">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">Full Time</label>
                     </div>
+                    <div class="form-check form-check-inline mb-3">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">Flexible</label>
+                    </div>
+                    <div class="form-check form-check-inline mb-3">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">Monday to Friday</label>
+                    </div>
+                    <div class="form-check form-check-inline mb-3">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">Available on the week-end</label>
+                    </div>
+                </div>
+                <div class="container text-center">
+                    <button class="btn border-none mb-3 mt-3" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
                 </div>
             </form>
         </div>
