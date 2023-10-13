@@ -45,9 +45,8 @@ if( $displayJobId-> num_rows> 0)
     $displayJobId= $co-> query($selectJobId);
     while($row= $displayJobId-> fetch_assoc())
     {
-        echo $row["JOB_ID"];
+        echo $row["JOB_ID"], "y/n";
         display_jobId($row["JOB_ID"]);
-        echo "y\n";
     }
     display_full_desc();
 }

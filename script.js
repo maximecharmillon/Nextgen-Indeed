@@ -1,44 +1,26 @@
+let learnMore= document.querySelector("button");
+let jobId= document.getElementById("jobId").textContent;
 
-let tmpForm= new FormData;
-tmpForm.append("display", "display")
+learnMore.addEventListener('click', function(){
 
+    fetch_fullDescription();
 
+});
+
+    
+function fetch_fullDescription(){
+
+    let formData= new FormData();
+    formData.append("button", jobId);
+    
     fetch("http://localhost/Nextgen-Indeed/script.php",{
-                method: "POST",
-                mode: "cors",
-                body: tmpForm
-    }).then((r)=> { return r.text();
-       
+        method: "POST",
+        body: formData,
+        mode: "cors"
+    }).then((r)=> { return r.text()
     }).then((body)=> {
-        console.log(body);
-        let id= document.createElement("p");
-        id.innerText= body;
-
-        let valueJobId= body
-
-        let button= document.createElement("button");
-        
-        document.querySelector("div").appendChild(id);
-        document.querySelector("div").appendChild(button);
-
-        let learnMore= document.querySelector("button");
-
-        learnMore.addEventListener('click', function(){
-
-            let formData= new FormData();
-            formData.append("button", valueJobId);
-    
-            fetch("http://localhost/Nextgen-Indeed/script.php",{
-                method: "POST",
-                body: formData,
-                mode: "cors"
-            }).then((r)=> { return r.text()
-            }).then((body)=> {
-                fullDescription= document.createElement("p");
-                fullDescription.innerText= body;
-                document.querySelector("div").appendChild(fullDescription);
-            })
-    
-        });
+        fullDescription= document.createElement("p");
+        fullDescription.innerText= body;
+        document.querySelector("div").appendChild(fullDescription);
     })
-    
+}
