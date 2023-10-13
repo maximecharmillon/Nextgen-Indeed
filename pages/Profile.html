@@ -38,65 +38,78 @@
                 </form>
             </div>
         </nav>
-        <div class=" d-grid align-items-center">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="card mb-4 mt-5" style="margin-left: 5%;">
-                        <div class="card-body text-center" style="background-color: #F0F3F4DE;">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                            <h5 class="my-3">Name</h5>
-                            <p class="text-muted mb-1">Occupation</p>
-                            <p class="text-muted mb-4">Adresse</p>
+        <div class="container">
+            <div class="col-lg-8" style="margin-left: 15%;">
+                <div class="card mb-4 mt-4" style="background-color: #F0F3F4DE;">
+                    <div class="card-body text-center">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                             <div class="d-flex justify-content-center mb-2">
                                 <button type="button" class="btn btn-outline-dark ms-1" style="background-color: #2596BE; color: white;">Message</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="col-lg-8" style="margin-left: 29%;">
-                <div class="card mb-4" style="background-color: #F0F3F4DE;">
-                    <div class="card-body text-center">
                         <div class="row">
                             <div class="col-sm-3">
                                 <p class="mb-0">Full Name</p>
                             </div>
-                        <div class="col-sm-9">
-                            <p class="text-muted mb-0">?????????</p>
+                            <div class="col-sm-6">
+                                <p class="text-muted mb-0" id="fullName">John Doe</p>
+                                <input type="text" class="form-control d-none" id="fullNameInput">
+                            </div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-outline-dark" style="background-color: #2596BE; color: white;" onclick="editInfo('fullName')">Modifier</button>
+                                <button class="btn btn-success d-none" onclick="saveInfo('fullName')">Enregistrer</button>
+                                <button class="btn btn-danger d-none" onclick="cancelEdit('fullName')">Annuler</button>
+                            </div>
                         </div>
-                    </div>
-                    <hr>
+                        
                         <div class="row">
                             <div class="col-sm-3">
                                 <p class="mb-0">Email</p>
                             </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">example@example.com</p>
+                            <div class="col-sm-6">
+                                <p class="text-muted mb-0" id="email">example@example.com</p>
+                                <input type="email" class="form-control d-none" id="emailInput">
+                            </div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-outline-dark" style="background-color: #2596BE; color: white;" onclick="editInfo('email')">Modifier</button>
+                                <button class="btn btn-success d-none" onclick="saveInfo('email')">Enregistrer</button>
+                                <button class="btn btn-danger d-none" onclick="cancelEdit('email')">Annuler</button>
                             </div>
                         </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <p class="mb-0">Mobile</p>
+                        
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Mobile</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="text-muted mb-0" id="mobile">01 23 45 67 89</p>
+                                <input type="tel" class="form-control d-none" id="mobileInput">
+                            </div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-outline-dark" style="background-color: #2596BE; color: white;" onclick="editInfo('mobile')">Modifier</button>
+                                <button class="btn btn-success d-none" onclick="saveInfo('mobile')">Enregistrer</button>
+                                <button class="btn btn-danger d-none" onclick="cancelEdit('mobile')">Annuler</button>
+                            </div>
                         </div>
-                    <div class="col-sm-9">
-                        <p class="text-muted mb-0">01 23 45 67 89</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <p class="mb-0">Address</p>
-                    </div>
-                        <div class="col-sm-9">
-                            <p class="text-muted mb-0">????????????</p>
+                        
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Address</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="text-muted mb-0" id="address">123 Main St</p>
+                                <input type="text" class="form-control d-none" id="addressInput">
+                            </div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-outline-dark" style="background-color: #2596BE; color: white;" onclick="editInfo('address')">Modifier</button>
+                                <button class="btn btn-success d-none" onclick="saveInfo('address')">Enregistrer</button>
+                                <button class="btn btn-danger d-none" onclick="cancelEdit('address')">Annuler</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-15">
-                <div class="card" style="background-color: #F0F3F4DE;">
+                <div class="card mb-3" style="background-color: #F0F3F4DE;">
                     <h2 class="mb-3 text-center">Job</h2>
                     <ul class="nav" style="justify-content: space-around;">
                         <li class="nav-item">
@@ -132,5 +145,6 @@
             </div>
         </div>
     </main>
+    <script src="script/modify.js"></script>
 </body>
 </html>
