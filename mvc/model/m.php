@@ -26,13 +26,14 @@ function insert($co, $user, $email, $pwd, $userId, $jobId, $table, $valUser, $va
 
 }
 
-function update($co, $key, $table,$value1, $where, $value2){
-    $sql= "UPDATE". $table. " SET " .$key ."= " .$value1 ." WHERE ". $where. "=". $value2;
-    $r= $co-> query($sql);
+function update($co, $user, $email, $pwd, $table, $valUser, $valEmail, $valPwd, $userId, $valUserId){
+    $sql= "UPDATE ". $table. " SET " .$user ."= '" .$valUser. "', ".$email ."= '" .$valEmail. "', ".$pwd ."= '" .$valPwd."' WHERE ". $userId. "='". $valUserId. "'";
+    echo $sql;
+    $co-> query($sql);
     
     if ($co-> query($sql) === TRUE)
     {
-        echo $key+ " deleted";
+        echo $valUser+ " deleted";
     }
     else{
         echo "error of update2tion".$co->error;

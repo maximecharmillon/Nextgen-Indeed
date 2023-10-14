@@ -17,14 +17,16 @@ if(isset($_GET["selectUser"]))
 { 
      $userId= $_GET["selectUser"];
     echo (select ($co, "USER", "EMAIL", "PWD", "USER_ID", "JOB_ID", "USERS", $userId));
-    
-    
 }
-
 
 if(isset($_POST["user"]))
 {   
     echo (insert ($co, "USER","EMAIL", "PWD", "USER_ID", "JOB_ID", "USERS", ($_POST["user"]), ($_POST["email"]), ($_POST["pwd"]), ($_POST["userId"]), ($_POST["jobId"])));
+}
+
+if(isset($_POST["updateUser"]))
+{   
+    echo (update ($co, "USER", "EMAIL", "PWD", "USERS", $_POST["updateUser"], $_POST["updateEmail"], $_POST["updatePwd"], "USER_ID", $_POST["updateUserId"]));
 }
 
 if(isset($_GET["deleteId"]))
