@@ -66,8 +66,6 @@ function update_annonce(){
         updateAnnonce.append("salaire", updateSalaire)
         updateAnnonce.append("honoraires", updateHonoraires)
         updateAnnonce.append("avantage", updateAvantage)
-        updateAnnonce.append("userId", 5)
-        updateAnnonce.append("corpId", 3)
         updateAnnonce.append("jobId", 46)
         fetch(link, {
             method: "POST",  

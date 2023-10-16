@@ -1,5 +1,5 @@
 <?php
-function selectUser($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $salaire, $horaires, $avantages, $table, $valJobId){
+function select($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $salaire, $horaires, $avantages, $table, $valJobId){
     $conn= $co;
     $sql= "SELECT ". $jobId. ", ". $corpId. ", ". $userId. ", ". $date. ", ". $short. ", ". $full. ", ". $adress. ", ". $salaire. ", ". $horaires. ", ". $avantages. " FROM " .$table ." WHERE ". $jobId. "=". $valJobId;
     $result= $conn-> query($sql);
@@ -11,12 +11,10 @@ function selectUser($co, $jobId, $corpId, $userId, $date, $short, $full, $adress
             echo "<p id=full> description: ".$r[$full], "<br>adress: ", $r[$adress], "<br>salaire: ", $r[$salaire], "<br>horaires: ", $r[$horaires], "<br>avantage: ", $r[$avantages], "</p>";            
         }
     }
-    else{
-        echo "m";
-    }
+    
 }
 
-function insertUSer($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $salaire, $horaires, $avantages, $table, $valJobId, $valCorpId, $valUserId, $valDate, $valShort, $valFull, $valAdress, $valSalaire, $valHoraires, $valAvantages,){
+function insert($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $salaire, $horaires, $avantages, $table, $valJobId, $valCorpId, $valUserId, $valDate, $valShort, $valFull, $valAdress, $valSalaire, $valHoraires, $valAvantages,){
     $conn = $co;
 
     $sql= "INSERT INTO ". $table." ( ". $jobId. ", ". $corpId. ", ". $userId. ", ". $date. ", ". $short.  ", ". $full. ", ". $adress. ", " . $salaire. ", ". $horaires. ", ". $avantages. " ) VALUES ( '". $valJobId. "', '".  $valCorpId. "', '".  $valUserId. "', '".  $valDate. "', '".  $valShort. "', '". $valFull. "', '".  $valAdress. "', '".  $valHoraires. "', '".  $valSalaire. "', '".  $valAvantages. "' )";
@@ -25,14 +23,14 @@ function insertUSer($co, $jobId, $corpId, $userId, $date, $short, $full, $adress
 
 }
 
-function updateUser($co, $user, $email, $pwd, $table, $valUser, $valEmail, $valPwd, $userId, $valUserId){
-    $sql= "UPDATE ". $table. " SET " .$user ."= '" .$valUser. "', ".$email ."= '" .$valEmail. "', ".$pwd ."= '" .$valPwd."' WHERE ". $userId. "='". $valUserId. "'";
+function update($co, $date, $short, $full, $adress, $salaire, $horaires, $avantages, $table, $valDate, $valShort, $valFull, $valAdress, $valSalaire, $valHoraires, $valAvantage, $jobId, $valJobId){
+    $sql= "UPDATE ". $table. " SET " .$date ."= '" .$valDate. "', ".$short ."= '" .$valShort. "', ".$full ."= '" .$valFull. "', ". $adress ."= '" .$valAdress. "', ".$salaire ."= '" .$valSalaire. "', ".$horaires ."= '" .$valHoraires. "', ".$avantages ."= '" .$valAvantage."' WHERE ". $jobId. "='". $valJobId. "'";
     echo $sql;
     $co-> query($sql);
     
     if ($co-> query($sql) === TRUE)
     {
-        echo $valUser+ " deleted";
+        echo $valJobId+ " update";
     }
     else{
         echo "error of updatetion".$co->error;
@@ -40,10 +38,10 @@ function updateUser($co, $user, $email, $pwd, $table, $valUser, $valEmail, $valP
    
 }
 
-function deleteUser($co , $table, $userId, $valUserId){
+function delete($co , $table, $jobId, $valJobId){
     $conn= $co;
 
-    $sql= "DELETE FROM " .$table ." WHERE ". $userId. "=". $valUserId;
+    $sql= "DELETE FROM " .$table ." WHERE ". $jobId. "=". $valJobId;
     echo $sql;
 
     $conn-> query($sql);
