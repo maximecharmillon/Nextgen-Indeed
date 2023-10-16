@@ -1,27 +1,30 @@
-let link= "http://localhost/Nextgen-Indeed/mvc/controler/c.php";
+let link= "http://localhost/Nextgen-Indeed/mvc/controler/Cuser.php";
 
 let createUser= document.getElementById("createUser")
-createUser.addEventListener("click", function(){
+if(createUser!= null){
 
-    let createUsername= document.getElementById("createUsername").value
-    let createEmail= document.getElementById("createEmail").value
-    let createPwd= document.getElementById("createPwd").value
-    let insertUser= new FormData
-    insertUser.append("user", createUsername)
-    insertUser.append("pwd", createPwd)
-    insertUser.append("email", createEmail)
-    insertUser.append("userId", 5)
-    insertUser.append("jobId", 46)
-        fetch(link,{
-            method: "POST",
-            mode: "cors",
-            body: insertUser
-        }).then((r)=> { 
-            return r.text()
-        }).then((body)=> {
-            console.log(body)
-        })
-})
+    createUser.addEventListener("click", function(){
+
+        let createUsername= document.getElementById("createUsername").value
+        let createEmail= document.getElementById("createEmail").value
+        let createPwd= document.getElementById("createPwd").value
+        let insertUser= new FormData
+        insertUser.append("user", createUsername)
+        insertUser.append("pwd", createPwd)
+        insertUser.append("email", createEmail)
+        insertUser.append("userId", 5)
+        insertUser.append("jobId", 46)
+            fetch(link,{
+                method: "POST",
+                mode: "cors",
+                body: insertUser
+            }).then((r)=> { 
+                return r.text()
+            }).then((body)=> {
+                console.log(body)
+            })
+    })
+}
 
 
 function select_user(){
