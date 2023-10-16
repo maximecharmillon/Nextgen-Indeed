@@ -11,7 +11,7 @@ $db= "NEXTGEN";
 
 $co= new mysqli($serveur, $user, $pwd, $db);
 
-require "../model/m.php";
+require "../model/Muser.php";
 
 if(isset($_GET["selectUser"]))
 { 
@@ -30,7 +30,7 @@ if(isset($_POST["updateUser"]))
 }
 
 if(isset($_GET["deleteId"]))
-{   
+{   echo "chat";
     $userId= $_GET["deleteId"];
     echo (deleteUser ($co, "USERS", "USER_ID", $userId ));
 }

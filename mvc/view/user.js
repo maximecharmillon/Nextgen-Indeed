@@ -2,7 +2,6 @@ let link= "http://localhost/Nextgen-Indeed/mvc/controler/Cuser.php";
 
 let createUser= document.getElementById("createUser")
 if(createUser!= null){
-
     createUser.addEventListener("click", function(){
 
         let createUsername= document.getElementById("createUsername").value
@@ -68,7 +67,7 @@ function delete_user(){
             let deleteId= 4
             fetch(link+ "?deleteId="+ deleteId, {
                 method: "GET",  
-            }).then(alert("delete done"))
+            }).then((alert("delete done")))
         })
     }
         
@@ -95,8 +94,8 @@ buttonModif.addEventListener("click", function(){
 let buttonSupp= document.querySelector("#user #supp")
 if(buttonSupp!= null){
     buttonSupp.addEventListener("click", function(){
-        if(buttonSupp.innerHTML= "Supprimer"){
-            buttonSupp.innerHTML= "Vous etes sur !";
+        if(buttonSupp.innerHTML== "Supprimer"){
+            buttonSupp.innerHTML= "Vous êtes sur !";
             delete_user();
             }
         else{
