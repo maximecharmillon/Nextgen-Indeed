@@ -1,26 +1,27 @@
 let link= "http://localhost/Nextgen-Indeed/mvc/controler/c.php";
 
-let insertUser= new FormData
-insertUser.append("user", "max")
-insertUser.append("pwd", 2)
-insertUser.append("email", "mpointfr")
-insertUser.append("userId", 4)
-insertUser.append("jobId", 46)
+let createUser= document.getElementById("createUser")
+createUser.addEventListener("click", function(){
 
-// let create= document.getElementById("create")
-// create.addEventListener("click", function(){
-//     fetch(link,{
-//         method: "POST",
-//         mode: "cors",
-//         body: insertUser
-//     }).then((r)=> { 
-//         return r.text()
-//     }).then((body)=> {
-//         let postUser= document.createElement("p");
-//         postUser.innerHTML= body;
-//         document.querySelector("div").appendChild(postUser);
-//     })
-// })
+    let createUsername= document.getElementById("createUsername").value
+    let createEmail= document.getElementById("createEmail").value
+    let createPwd= document.getElementById("createPwd").value
+    let insertUser= new FormData
+    insertUser.append("user", createUsername)
+    insertUser.append("pwd", createPwd)
+    insertUser.append("email", createEmail)
+    insertUser.append("userId", 5)
+    insertUser.append("jobId", 46)
+        fetch(link,{
+            method: "POST",
+            mode: "cors",
+            body: insertUser
+        }).then((r)=> { 
+            return r.text()
+        }).then((body)=> {
+            console.log(body)
+        })
+})
 
 
 function select_user(){
@@ -31,7 +32,10 @@ fetch(link+ "?selectUser="+ encodeURIComponent(userId), {
 }).then((r)=> { return r.text()
 }).then((body)=> {
     let getUser= document.querySelector("#user p")
-    getUser.innerHTML= body;
+    if(getUser!= null){
+        getUser.innerHTML= body;
+    }
+    
 })
 }
 
@@ -69,7 +73,8 @@ function delete_user(){
 select_user();
 
 let buttonModif= document.querySelector("#user #modif")
-let form= document.querySelector("#user form")
+if (buttonModif!= null){
+    let form= document.querySelector("#user form")
 buttonModif.addEventListener("click", function(){
     if(getComputedStyle(form).display == "none"){
         form.style.display = "block";
@@ -81,16 +86,21 @@ buttonModif.addEventListener("click", function(){
         buttonModif.innerHTML= "Modifier";
     } 
 })
+}
+
 
 let buttonSupp= document.querySelector("#user #supp")
-buttonSupp.addEventListener("click", function(){
-    if(buttonSupp.innerHTML= "Supprimer"){
-        buttonSupp.innerHTML= "Vous etes sur !";
-        delete_user();
-        }
-    else{
-        
-        buttonSupp.innerHTML= "Supprimer";
-    } 
-})
+if(buttonSupp!= null){
+    buttonSupp.addEventListener("click", function(){
+        if(buttonSupp.innerHTML= "Supprimer"){
+            buttonSupp.innerHTML= "Vous etes sur !";
+            delete_user();
+            }
+        else{
+            
+            buttonSupp.innerHTML= "Supprimer";
+        } 
+    })
+}
+
 
