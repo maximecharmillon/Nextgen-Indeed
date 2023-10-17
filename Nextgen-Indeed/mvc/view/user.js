@@ -3,7 +3,6 @@ let link= "http://localhost/Nextgen-Indeed/mvc/controler/Cuser.php";
 let createUser= document.getElementById("createUser")
 if(createUser!= null){
     createUser.addEventListener("click", function(){
-
         let createUsername= document.getElementById("createUsername").value
         let createEmail= document.getElementById("createEmail").value
         let createPwd= document.getElementById("createPwd").value
@@ -11,16 +10,14 @@ if(createUser!= null){
         insertUser.append("user", createUsername)
         insertUser.append("pwd", createPwd)
         insertUser.append("email", createEmail)
-        insertUser.append("userId", 5)
+        insertUser.append("userId", 4)
         insertUser.append("jobId", 46)
             fetch(link,{
                 method: "POST",
                 mode: "cors",
                 body: insertUser
             }).then((r)=> { 
-                return r.text()
-            }).then((body)=> {
-                console.log(body)
+                console.log(r)
             })
     })
 }

@@ -11,12 +11,17 @@ $db= "NEXTGEN";
 
 $co= new mysqli($serveur, $user, $pwd, $db);
 
-require "../model/Muser.php";
+require "../model/Mannonce.php";
 
 if(isset($_GET["selectAnnonce"]))
 { 
     $annonceId= $_GET["selectAnnonce"];
     echo (select ($co, "JOB_ID", "CORP_ID", "USER_ID", "DATE", "SHORT_DESC", "FULL_DESC", "ADRESSE", "SALAIRE", "HORAIRES", "AVANTAGES", "ANNONCES",  $annonceId));
+}
+if(isset($_GET["selectAnnonce2"]))
+{ 
+    $annonceId= $_GET["selectAnnonce2"];
+    echo (select2 ($co, "JOB_ID", "CORP_ID", "USER_ID", "DATE", "SHORT_DESC", "FULL_DESC", "ADRESSE", "SALAIRE", "HORAIRES", "AVANTAGES", "ANNONCES",  $annonceId));
 }
 
 if(isset($_POST["date"]))
@@ -32,7 +37,7 @@ if(isset($_POST["updateAnnonce"]))
 if(isset($_GET["deleteId"]))
 {   
     $userId= $_GET["deleteId"];
-    echo (delete ($co, "USERS", "USER_ID", $userId ));
+    echo (delete ($co, "ANNONCES", "JOB_ID", $userId ));
 }
 
 

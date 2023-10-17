@@ -1,5 +1,4 @@
 <?php
-
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type");
@@ -22,6 +21,9 @@ if(isset($_GET["selectUser"]))
 if(isset($_POST["user"]))
 {   
     echo (insertUser ($co, "USER","EMAIL", "PWD", "USER_ID", "JOB_ID", "USERS", ($_POST["user"]), ($_POST["email"]), ($_POST["pwd"]), ($_POST["userId"]), ($_POST["jobId"])));
+    return header("Location:http://localhost/Nextgen-Indeed/pages/accueil.html");
+    exit();
+    // a revoir
 }
 
 if(isset($_POST["updateUser"]))

@@ -8,12 +8,8 @@ function selectUser($co, $user, $email, $pwd, $userId, $jobId, $table, $valUserI
     {
         while( $r= $result-> fetch_assoc())
         {
-            
             echo " name: ".$r[$user], "<br>email: ", $r[$email], "<br>password: ", $r[$pwd];
         }
-    }
-    else{
-        echo "m";
     }
 }
 
@@ -23,7 +19,6 @@ function insertUSer($co, $user, $email, $pwd, $userId, $jobId, $table, $valUser,
     $sql= "INSERT INTO ". $table." ( ". $user. ", ". $email. ", ". $pwd. ", ". $userId. ", ". $jobId. " ) VALUES ( '". $valUser. "', '".  $valEmail. "', '".  $valPwd. "', '".  $valUserId. "', '".  $valJobId. "' )";
    
     $conn-> query($sql);
-
 }
 
 function updateUser($co, $user, $email, $pwd, $table, $valUser, $valEmail, $valPwd, $userId, $valUserId){

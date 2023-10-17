@@ -7,8 +7,21 @@ function select($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $s
     {
         while( $r= $result-> fetch_assoc())
         {
-            echo " date: ".$r[$date], "<br> ", $r[$short];
-            echo "<p id=full> description: ".$r[$full], "<br>adress: ", $r[$adress], "<br>salaire: ", $r[$salaire], "<br>horaires: ", $r[$horaires], "<br>avantage: ", $r[$avantages], "</p>";            
+            
+            echo " description: ".$r[$full], "<br>adress: ", $r[$adress], "<br>salaire: ", $r[$salaire], "<br>horaires: ", $r[$horaires], "<br>avantage: ", $r[$avantages];            
+        }
+    }
+    
+}
+function select2($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $salaire, $horaires, $avantages, $table, $valJobId){
+    $conn= $co;
+    $sql= "SELECT ". $jobId. ", ". $corpId. ", ". $userId. ", ". $date. ", ". $short. ", ". $full. ", ". $adress. ", ". $salaire. ", ". $horaires. ", ". $avantages. " FROM " .$table ." WHERE ". $jobId. "=". $valJobId;
+    $result= $conn-> query($sql);
+    if( $result-> num_rows> 0)
+    {
+        while( $r= $result-> fetch_assoc())
+        {
+            echo " date: ".$r[$date], "<br>", $r[$short];
         }
     }
     
