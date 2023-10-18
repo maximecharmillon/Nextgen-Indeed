@@ -26,11 +26,11 @@ if(isset($_GET["selectAnnonce2"]))
 
 if(isset($_POST["date"]))
 {   
-    echo (insert ($co, "JOB_ID","CORP_ID", "USER_ID", "DATE", "SHORT_DESC", "FULL_DESC", "ADRESSE", "SALAIRE", "HORAIRES", "AVANTAGE", "USERS", ($_POST["jobId"]), ($_POST["corpId"]),($_POST["userId"]), ($_POST["date"]), ($_POST["short"]), ($_POST["full"]), ($_POST["adresse"]), ($_POST["salaire"]), ($_POST["horaires"]), ($_POST["avantage"])));
+    echo (insert ($co, "JOB_ID","CORP_ID", "USER_ID", "DATE", "SHORT_DESC", "FULL_DESC", "ADRESSE", "SALAIRE", "HORAIRES", "AVANTAGES", "ANNONCES", ($_POST["jobId"]), ($_POST["corpId"]),($_POST["userId"]), ($_POST["date"]), ($_POST["short"]), ($_POST["full"]), ($_POST["adresse"]), ($_POST["salaire"]), ($_POST["horaires"]), ($_POST["avantage"])));
 }
 
-if(isset($_POST["updateAnnonce"]))
-{   
+if(isset($_POST["updateDate"]))
+{   echo "chatchatchat";
     echo (update ($co, "DATE", "SHORT_DESC", "FULL_DESC", "ADRESSE", "SALAIRE", "HORAIRES", "AVANTAGES", "USERS", $_POST["date"], $_POST["short"], $_POST["full"], $_POST["adress"], $_POST["salaire"], $_POST["horaires"], $_POST["avantage"], "JOB_ID", $_POST["jobId"]));
 }
 

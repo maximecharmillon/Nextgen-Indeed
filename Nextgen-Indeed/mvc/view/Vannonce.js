@@ -1,11 +1,11 @@
 let linka= "http://localhost/Nextgen-Indeed/mvc/controler/Cannonce.php"
-console.log("tsetse")
+
 const salaryRange = document.getElementById("salaryRange");
   const selectedSalary = document.getElementById("selectedSalary");
-
+let selectedValue= ""
   if(salaryRange!= null){
         salaryRange.addEventListener("input", function() {
-            const selectedValue = parseInt(salaryRange.value);
+            selectedValue = parseInt(salaryRange.value);
             selectedSalary.textContent = `Select a salary : $${selectedValue}/month`;
         });
   }
@@ -18,7 +18,7 @@ if(createAnnonce!= null){
             let createShort= document.getElementById("createShort").value
             let createFull= document.getElementById("createFull").value
             let createAdresse= document.getElementById("createAdresse").value
-            let createSalaire= selectedSalary;
+            let createSalaire= selectedValue;
             // let createHoraires= document.getElementById("createHoraires").value
             let createAvantage= document.getElementById("createAvantage").value
         
@@ -28,19 +28,17 @@ if(createAnnonce!= null){
             insertAnnonce.append("full", createFull)
             insertAnnonce.append("adresse", createAdresse)
             insertAnnonce.append("salaire", createSalaire)
-            insertAnnonce.append("horaires", "fefe")
+            insertAnnonce.append("horaires", "As you want")
             insertAnnonce.append("avantage", createAvantage)
             insertAnnonce.append("userId", 5)
             insertAnnonce.append("corpId", createCorpId)
-            insertAnnonce.append("jobId", 2)
+            insertAnnonce.append("jobId", 7)
                 fetch(linka,{
                     method: "POST",
                     mode: "cors",
                     body: insertAnnonce
-                }).then((r)=> { console.log(r)
+                }).then((r)=> { 
                     return r.text()
-                }).then((body)=> {
-                    console.log(body)
                 })
         });
     }
@@ -91,33 +89,45 @@ function select_annonce2(x){
     }) 
 }
 
-function update_annonce(){
+function update_annonce(x){
+    let modifAnnonce= document.querySelector("#annonce #modif"+x)
     modifAnnonce.addEventListener("click", function(){
-        let updateDate= document.getElementById("createDate").value
-        let updateShort= document.getElementById("createShort").value
-        let updateFull= document.getElementById("createFull").value
-        let updateAdresse= document.getElementById("createAdresse").value
-        let updateSalaire= document.getElementById("createSalaire").value
-        let updateHonoraires= document.getElementById("createHoraires").value
-        let updateAvantage= document.getElementById("createAvantage").value
+        let updateDate= document.getElementById("date").value
+        let updateShort= document.getElementById("short").value
+        let updateAdresse= document.getElementById("adresse").value
+
         let updateAnnonce= new FormData
-        updateAnnonce.append("date", updateDate)
-        updateAnnonce.append("short", updateShort)
-        updateAnnonce.append("full", updateFull)
-        updateAnnonce.append("adresse", updateAdresse)
-        updateAnnonce.append("salaire", updateSalaire)
-        updateAnnonce.append("honoraires", updateHonoraires)
-        updateAnnonce.append("avantage", updateAvantage)
-        updateAnnonce.append("jobId", 46)
+        updateAnnonce.append("updateDate", updateDate)
+        updateAnnonce.append("updateShort", updateShort)
+        updateAnnonce.append("updateAdresse", updateAdresse)
+        updateAnnonce.append("updateJobId", x)
         fetch(linka, {
             method: "POST",  
             mode: "cors",
             body: updateAnnonce
-        }).then ((r)=> { 
+        }).then ((r)=> { console.log(r)
             return r.text()
         })
     })   
     }
+
+function modif_annonce(x){
+    let modifAnnonce= document.querySelector("#annonce #modif"+x)
+    if (modifAnnonce!= null){
+        let form= document.querySelector("#annonce form")
+        modifAnnonce.addEventListener("click", function(){
+            if(getComputedStyle(form).display == "none"){
+                form.style.display = "block";
+                modifAnnonce.innerHTML= "Envoyer";
+                update_annonce(x);
+                }
+            else{
+                form.style.display = "none";
+                modifAnnonce.innerHTML= "Modifier";
+                } 
+        })
+    }
+}
 
 function delete_annonce(){
     suppAnnonce.addEventListener("click", function(){
@@ -135,29 +145,23 @@ select_annonce(3);
 select_annonce(4);
 select_annonce(5);
 select_annonce(6);
+select_annonce(7);
 select_annonce2(1);
 select_annonce2(2);
 select_annonce2(3);
 select_annonce2(4);
 select_annonce2(5);
 select_annonce2(6);
+select_annonce2(7);
 
+modif_annonce(1);
+modif_annonce(2);
+modif_annonce(3);
+modif_annonce(4);
+modif_annonce(5);
+modif_annonce(6);
+modif_annonce(7);
 
-let modifAnnonce= document.querySelector("#annonce #modif")
-if (modifAnnonce!= null){
-    let form= document.querySelector("#annonce form")
-modifAnnonce.addEventListener("click", function(){
-    if(getComputedStyle(form).display == "none"){
-        form.style.display = "block";
-        modifAnnonce.innerHTML= "Envoyer";
-        update_annonce();
-        }
-    else{
-        form.style.display = "none";
-        modifAnnonce.innerHTML= "Modifier";
-    } 
-})
-}
 
 
 let suppAnnonce= document.querySelector("#annonce #supp")

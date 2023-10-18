@@ -220,6 +220,32 @@
                 <div class="col-12">
                   <button class="btn border-none mb-3 mt-3" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
                 </div>
+                <div class="card mb-3" style="width: 30%; background-color: #F0F3F4;">
+                  <h2>Anonnce 7</h2>
+                  <p id="textShort7">Short description</p>
+                  <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;" id="selectAnnonce7">Learn More</button>
+                  <p id="textAnnonce7"></p>
+                  <button onclick="toggleForm('form6')" class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Apply</button>
+                  <form id="form6" style="display: none;">
+                    <div class="form-floating mb-4">
+                      <input type="text" id="username" class="form-control form control-lg" placeholder="Username"/>
+                      <label class="form-label" for="username">Username</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                      <input type="text" id="email" class="form-control form control-lg" placeholder="Email"/>
+                      <label class="form-label" for="email">Email</label>
+                    </div>
+                    <div class="form-floating mb-4">
+                      <input type="tel" id="phone" class="form-control form control-lg" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Phone number"/>
+                      <label class="form-label" for="phone">Phone number</label>
+                    </div>
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                      <label for="floatingTextarea2">Message</label>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn border-none mb-3 mt-3" style="background-color: #2596BE; color: white;" type="submit">Submit form</button>
+                    </div>
               </form>
             </div>
           </div>

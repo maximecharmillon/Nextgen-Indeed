@@ -8,7 +8,7 @@ function select($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $s
         while( $r= $result-> fetch_assoc())
         {
             
-            echo " description: ".$r[$full], "<br>adress: ", $r[$adress], "<br>salaire: ", $r[$salaire], "<br>horaires: ", $r[$horaires], "<br>avantage: ", $r[$avantages];            
+            echo " date: ".$r[$date], "<br> description: ".$r[$full], "<br>adress: ", $r[$adress], "<br>salaire: ", $r[$salaire], "<br>horaires: ", $r[$horaires], "<br>avantage: ", $r[$avantages];            
         }
     }
     
@@ -21,7 +21,7 @@ function select2($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $
     {
         while( $r= $result-> fetch_assoc())
         {
-            echo " date: ".$r[$date], "<br>", $r[$short];
+            echo $r[$short];
         }
     }
     
@@ -31,7 +31,7 @@ function insert($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $s
     $conn = $co;
 
     $sql= "INSERT INTO ". $table." ( ". $jobId. ", ". $corpId. ", ". $userId. ", ". $date. ", ". $short.  ", ". $full. ", ". $adress. ", " . $salaire. ", ". $horaires. ", ". $avantages. " ) VALUES ( '". $valJobId. "', '".  $valCorpId. "', '".  $valUserId. "', '".  $valDate. "', '".  $valShort. "', '". $valFull. "', '".  $valAdress. "', '".  $valHoraires. "', '".  $valSalaire. "', '".  $valAvantages. "' )";
-    echo $sql;
+    
     $conn-> query($sql);
 
 }
