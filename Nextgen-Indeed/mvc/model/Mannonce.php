@@ -31,7 +31,7 @@ function insert($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $s
     $conn = $co;
 
     $sql= "INSERT INTO ". $table." ( ". $jobId. ", ". $corpId. ", ". $userId. ", ". $date. ", ". $short.  ", ". $full. ", ". $adress. ", " . $salaire. ", ". $horaires. ", ". $avantages. " ) VALUES ( '". $valJobId. "', '".  $valCorpId. "', '".  $valUserId. "', '".  $valDate. "', '".  $valShort. "', '". $valFull. "', '".  $valAdress. "', '".  $valHoraires. "', '".  $valSalaire. "', '".  $valAvantages. "' )";
-   
+    echo $sql;
     $conn-> query($sql);
 
 }

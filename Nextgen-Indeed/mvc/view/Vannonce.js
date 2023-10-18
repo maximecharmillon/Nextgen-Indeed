@@ -1,17 +1,19 @@
 let linka= "http://localhost/Nextgen-Indeed/mvc/controler/Cannonce.php"
-
+console.log("tsetse")
 const salaryRange = document.getElementById("salaryRange");
   const selectedSalary = document.getElementById("selectedSalary");
 
-  salaryRange.addEventListener("input", function() {
-    const selectedValue = parseInt(salaryRange.value);
-    selectedSalary.textContent = `Select a salary : $${selectedValue}/month`;
-});
+  if(salaryRange!= null){
+        salaryRange.addEventListener("input", function() {
+            const selectedValue = parseInt(salaryRange.value);
+            selectedSalary.textContent = `Select a salary : $${selectedValue}/month`;
+        });
+  }
 
 let createAnnonce= document.getElementById("createAnnonce")
 if(createAnnonce!= null){
         createAnnonce.addEventListener("click", function(){
-            let createCorpId= document.getElementById("createCorpId")
+            let createCorpId= document.getElementById("createCorpId").value
             let createDate= document.getElementById("createDate").value
             let createShort= document.getElementById("createShort").value
             let createFull= document.getElementById("createFull").value
@@ -21,16 +23,16 @@ if(createAnnonce!= null){
             let createAvantage= document.getElementById("createAvantage").value
         
             let insertAnnonce= new FormData
-            insertAnnonce.append("date", "createDate")
-            insertAnnonce.append("short", "createShort")
-            insertAnnonce.append("full", "createFull")
-            insertAnnonce.append("adresse", "createAdresse")
-            insertAnnonce.append("salaire", "createSalaire")
+            insertAnnonce.append("date", createDate)
+            insertAnnonce.append("short", createShort)
+            insertAnnonce.append("full", createFull)
+            insertAnnonce.append("adresse", createAdresse)
+            insertAnnonce.append("salaire", createSalaire)
             insertAnnonce.append("horaires", "fefe")
-            insertAnnonce.append("avantage", "createAvantage")
+            insertAnnonce.append("avantage", createAvantage)
             insertAnnonce.append("userId", 5)
-            insertAnnonce.append("corpId", "createCorpId")
-            insertAnnonce.append("jobId", 1)
+            insertAnnonce.append("corpId", createCorpId)
+            insertAnnonce.append("jobId", 2)
                 fetch(linka,{
                     method: "POST",
                     mode: "cors",

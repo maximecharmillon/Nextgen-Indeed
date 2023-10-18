@@ -26,7 +26,7 @@ if(isset($_GET["selectAnnonce2"]))
 
 if(isset($_POST["date"]))
 {   
-    echo (insert ($co, "JOB_ID","CORP_ID", "USER_ID", "DATE", "SHORT_DESC", "FULL", "ADRESSE", "SALAIRE", "HORAIRES", "AVANTAGE", "USERS", ($_POST["jobId"]), ($_POST["corpId"]),($_POST["userId"]), ($_POST["date"]), ($_POST["short"]), ($_POST["full"]), ($_POST["adresse"]), ($_POST["salaire"]), ($_POST["horaires"]), ($_POST["avantge"])));
+    echo (insert ($co, "JOB_ID","CORP_ID", "USER_ID", "DATE", "SHORT_DESC", "FULL_DESC", "ADRESSE", "SALAIRE", "HORAIRES", "AVANTAGE", "USERS", ($_POST["jobId"]), ($_POST["corpId"]),($_POST["userId"]), ($_POST["date"]), ($_POST["short"]), ($_POST["full"]), ($_POST["adresse"]), ($_POST["salaire"]), ($_POST["horaires"]), ($_POST["avantage"])));
 }
 
 if(isset($_POST["updateAnnonce"]))

@@ -51,16 +51,16 @@
                     <label for="createCorpId" class="form-label">Company ID</label>
                 </div>
                 <div class="form-floating mb-4">
-                    <input type="text" id="createAdresse" class="form-control form control-lg" placeholder="Address"/>
-                    <label class="form-label" for="createAdresse">Address</label>
+                    <input type="text" for="createAdresse" class="form-control form control-lg" placeholder="Address"/>
+                    <label class="form-label" id="createAdresse">Address</label>
                 </div>
                 <div class="input-group mb-4">
-                    <span class="input-group-text" id="createShort">Short description</span>
-                    <textarea class="form-control" aria-label="With textarea" for="createShort"></textarea>
+                    <span class="input-group-text" for="createShort">Short description</span>
+                    <textarea class="form-control" aria-label="With textarea" id="createShort"></textarea>
                 </div>
                 <div class="input-group mb-4">
-                    <span class="input-group-text" id="createFull">Full description</span>
-                    <textarea class="form-control" aria-label="With textarea" for="createFull"></textarea>
+                    <span class="input-group-text" for="createFull">Full description</span>
+                    <textarea class="form-control" aria-label="With textarea" id="createFull"></textarea>
                 </div>
                     <label for="salaryRange" class="form-label mb-3">Salary</label>
                     <input type="range" class="form-range mb-3" min="0" max="10000" step="50" id="salaryRange" list="salaryValues">
@@ -75,8 +75,8 @@
                     <p class="mb-3" id="selectedSalary">Select a salary : $0/month</p>
                 </div>
                 <div class = "col-lg-12 container mb-3">
-                    <label for="date" class="col-1 col-form-label" id="createDate">Date:</label>
-                    <input type="date" name="date" for="createDate">
+                    <label  class="col-1 col-form-label" for="createDate">Date:</label>
+                    <input type="date" name="date" id="createDate">
                 </div>
                 <div class="container">
                     <p>Schedules:</p>
@@ -97,12 +97,12 @@
                         <label class="form-check-label" for="flexCheckDefault">Available on the week-end</label>
                     </div>
                     <div class="input-group mb-4">
-                        <span class="input-group-text" id="createAvantage">Avantages</span>
-                        <textarea class="form-control" aria-label="With textarea" for="createAvantage"></textarea>
+                        <span class="input-group-text" for="createAvantage">Avantages</span>
+                        <textarea class="form-control" aria-label="With textarea" id="createAvantage"></textarea>
                     </div>
                 </div>
                 <div class="container text-center">
-                    <button class="btn border-none mb-3 mt-3" style="background-color: #2596BE; color: white;" type="submit" id="createAnnonce">Submit form</button>
+                    <button class="btn border-none mb-3 mt-3" style="background-color: #2596BE; color: white;" type="button" id="createAnnonce">Submit form</button>
                 </div>
             </form>
         </div>
@@ -127,6 +127,6 @@
         </footer>
     </div>
     <script src="script/salary.js"></script>
-    <script src="../mvc/view/Vannonce.js"></script>
+    <script src="../mvc/view/user.js"></script>
 </body>
 </html>
