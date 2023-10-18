@@ -18,8 +18,9 @@ if(isset($_GET["selectAnnonce"]))
     $annonceId= $_GET["selectAnnonce"];
     echo (select ($co, "JOB_ID", "CORP_ID", "USER_ID", "DATE", "SHORT_DESC", "FULL_DESC", "ADRESSE", "SALAIRE", "HORAIRES", "AVANTAGES", "ANNONCES",  $annonceId));
 }
+
 if(isset($_GET["selectAnnonce2"]))
-{ 
+{   
     $annonceId= $_GET["selectAnnonce2"];
     echo (select2 ($co, "JOB_ID", "CORP_ID", "USER_ID", "DATE", "SHORT_DESC", "FULL_DESC", "ADRESSE", "SALAIRE", "HORAIRES", "AVANTAGES", "ANNONCES",  $annonceId));
 }
@@ -30,15 +31,13 @@ if(isset($_POST["date"]))
 }
 
 if(isset($_POST["updateDate"]))
-{   echo "chatchatchat";
-    echo (update ($co, "DATE", "SHORT_DESC", "FULL_DESC", "ADRESSE", "SALAIRE", "HORAIRES", "AVANTAGES", "USERS", $_POST["date"], $_POST["short"], $_POST["full"], $_POST["adress"], $_POST["salaire"], $_POST["horaires"], $_POST["avantage"], "JOB_ID", $_POST["jobId"]));
+{   
+    echo (update ($co, "DATE", "SHORT_DESC", "ADRESSE", "ANNONCES", $_POST["updateDate"], $_POST["updateShort"], $_POST["updateAdresse"], "JOB_ID", $_POST["updateJobId"]));
 }
 
 if(isset($_GET["deleteId"]))
 {   
-    $userId= $_GET["deleteId"];
-    echo (delete ($co, "ANNONCES", "JOB_ID", $userId ));
+    $annonceId= $_GET["deleteId"];
+    echo (delete ($co, "ANNONCES", "JOB_ID", $annonceId ));
 }
-
-
 ?>

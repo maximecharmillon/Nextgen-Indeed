@@ -12,6 +12,7 @@ let selectedValue= ""
 
 let createAnnonce= document.getElementById("createAnnonce")
 if(createAnnonce!= null){
+    let idAnnonce= Math.floor(Math.random()*100)
         createAnnonce.addEventListener("click", function(){
             let createCorpId= document.getElementById("createCorpId").value
             let createDate= document.getElementById("createDate").value
@@ -30,9 +31,9 @@ if(createAnnonce!= null){
             insertAnnonce.append("salaire", createSalaire)
             insertAnnonce.append("horaires", "As you want")
             insertAnnonce.append("avantage", createAvantage)
-            insertAnnonce.append("userId", 5)
+            insertAnnonce.append("userId", null)
             insertAnnonce.append("corpId", createCorpId)
-            insertAnnonce.append("jobId", 7)
+            insertAnnonce.append("jobId", idAnnonce)
                 fetch(linka,{
                     method: "POST",
                     mode: "cors",
@@ -91,52 +92,73 @@ function select_annonce2(x){
 
 function update_annonce(x){
     let modifAnnonce= document.querySelector("#annonce #modif"+x)
-    modifAnnonce.addEventListener("click", function(){
-        let updateDate= document.getElementById("date").value
-        let updateShort= document.getElementById("short").value
-        let updateAdresse= document.getElementById("adresse").value
+    if(modifAnnonce!= null){
+        modifAnnonce.addEventListener("click", function(){
+            let updateDate= document.getElementById("date").value
+            let updateShort= document.getElementById("short").value
+            let updateAdresse= document.getElementById("adresse").value
 
-        let updateAnnonce= new FormData
-        updateAnnonce.append("updateDate", updateDate)
-        updateAnnonce.append("updateShort", updateShort)
-        updateAnnonce.append("updateAdresse", updateAdresse)
-        updateAnnonce.append("updateJobId", x)
-        fetch(linka, {
-            method: "POST",  
-            mode: "cors",
-            body: updateAnnonce
-        }).then ((r)=> { console.log(r)
-            return r.text()
+            let updateAnnonce= new FormData
+            updateAnnonce.append("updateDate", updateDate)
+            updateAnnonce.append("updateShort", updateShort)
+            updateAnnonce.append("updateAdresse", updateAdresse)
+            updateAnnonce.append("updateJobId", x)
+
+            fetch(linka, {
+                method: "POST",  
+                mode: "cors",
+                body: updateAnnonce
+            }).then ((r)=> {
+                return r.text()
+            })
         })
-    })   
-    }
+    }   
+}
 
 function modif_annonce(x){
     let modifAnnonce= document.querySelector("#annonce #modif"+x)
     if (modifAnnonce!= null){
         let form= document.querySelector("#annonce form")
         modifAnnonce.addEventListener("click", function(){
-            if(getComputedStyle(form).display == "none"){
+            if(modifAnnonce.textContent== "Modify"){
+                console.log(modifAnnonce.textContent)
                 form.style.display = "block";
-                modifAnnonce.innerHTML= "Envoyer";
+                modifAnnonce.innerHTML= "Send";
                 update_annonce(x);
                 }
             else{
+                console.log(modifAnnonce.textContent)
                 form.style.display = "none";
-                modifAnnonce.innerHTML= "Modifier";
+                modifAnnonce.innerHTML= "Modify";
                 } 
         })
     }
 }
 
-function delete_annonce(){
+function delete_annonce(x){
+    let suppAnnonce= document.querySelector("#annonce #supp"+x)
     suppAnnonce.addEventListener("click", function(){
-            let deleteId= 4
+            let deleteId= x
             fetch(linka+ "?deleteId="+ deleteId, {
                 method: "GET",  
-            }).then(alert("delete done"))
+            }).then((r)=> console.log(r))
         })
     }
+function supp_annonce(x){
+    let suppAnnonce= document.querySelector("#annonce #supp"+x)
+    if(suppAnnonce!= null){
+        suppAnnonce.addEventListener("click", function(){
+            if(suppAnnonce.innerHTML== "Delete"){
+                suppAnnonce.innerHTML= "Vous etes sur !";
+                delete_annonce(x);
+                }
+            else{
+                
+                suppAnnonce.innerHTML= "Supprimer";
+            } 
+        })
+    }
+}
         
 
 select_annonce(1);
@@ -145,14 +167,15 @@ select_annonce(3);
 select_annonce(4);
 select_annonce(5);
 select_annonce(6);
-select_annonce(7);
+select_annonce(idAnnonce);
+
 select_annonce2(1);
 select_annonce2(2);
 select_annonce2(3);
 select_annonce2(4);
 select_annonce2(5);
 select_annonce2(6);
-select_annonce2(7);
+select_annonce2(idAnnonce);
 
 modif_annonce(1);
 modif_annonce(2);
@@ -160,22 +183,16 @@ modif_annonce(3);
 modif_annonce(4);
 modif_annonce(5);
 modif_annonce(6);
-modif_annonce(7);
+modif_annonce(idAnnonce);
+
+supp_annonce(1);
+supp_annonce(2);
+supp_annonce(3);
+supp_annonce(4);
+supp_annonce(5);
+supp_annonce(6);
+supp_annonce(idAnnonce);
 
 
-
-let suppAnnonce= document.querySelector("#annonce #supp")
-if(suppAnnonce!= null){
-    suppAnnonce.addEventListener("click", function(){
-        if(suppAnnonce.innerHTML= "Supprimer"){
-            suppAnnonce.innerHTML= "Vous etes sur !";
-            delete_user();
-            }
-        else{
-            
-            suppAnnonce.innerHTML= "Supprimer";
-        } 
-    })
-}
 
 

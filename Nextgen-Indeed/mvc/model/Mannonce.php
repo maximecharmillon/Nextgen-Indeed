@@ -36,18 +36,18 @@ function insert($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $s
 
 }
 
-function update($co, $date, $short, $full, $adress, $salaire, $horaires, $avantages, $table, $valDate, $valShort, $valFull, $valAdress, $valSalaire, $valHoraires, $valAvantage, $jobId, $valJobId){
-    $sql= "UPDATE ". $table. " SET " .$date ."= '" .$valDate. "', ".$short ."= '" .$valShort. "', ".$full ."= '" .$valFull. "', ". $adress ."= '" .$valAdress. "', ".$salaire ."= '" .$valSalaire. "', ".$horaires ."= '" .$valHoraires. "', ".$avantages ."= '" .$valAvantage."' WHERE ". $jobId. "='". $valJobId. "'";
+function update($co, $date, $short, $adress, $table, $valDate, $valShort, $valAdress, $jobId, $valJobId){
+    $sql= "UPDATE ". $table. " SET " .$date ."= '" .$valDate. "', ".$short ."= '" .$valShort. "', ". $adress ."= '" .$valAdress."' WHERE ". $jobId. "='". $valJobId. "'";
     echo $sql;
     $co-> query($sql);
     
-    if ($co-> query($sql) === TRUE)
-    {
-        echo $valJobId+ " update";
-    }
-    else{
-        echo "error of updatetion".$co->error;
-    }
+    // if ($co-> query($sql) === TRUE)
+    // {
+    //     echo $valJobId+ " update";
+    // }
+    // else{
+    //     echo "error of updatetion".$co->error;
+    // }
    
 }
 

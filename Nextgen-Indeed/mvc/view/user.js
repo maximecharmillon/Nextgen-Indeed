@@ -2,6 +2,7 @@ let link= "http://localhost/Nextgen-Indeed/mvc/controler/Cuser.php";
 
 let createUser= document.getElementById("createUser")
 if(createUser!= null){
+    let idUser= Math.floor(Math.random()*100)
     createUser.addEventListener("click", function(){
         let createUsername= document.getElementById("createUsername").value
         let createEmail= document.getElementById("createEmail").value
@@ -10,8 +11,8 @@ if(createUser!= null){
         insertUser.append("user", createUsername)
         insertUser.append("pwd", createPwd)
         insertUser.append("email", createEmail)
-        insertUser.append("userId", 4)
-        insertUser.append("jobId", 46)
+        insertUser.append("userId", idUser)
+        insertUser.append("jobId", null)
             fetch(link,{
                 method: "POST",
                 mode: "cors",
@@ -24,7 +25,7 @@ if(createUser!= null){
 
 
 function select_user(){
-    let userId= 4
+    let userId= idUser
 fetch(link+ "?selectUser="+ encodeURIComponent(userId), {
     method: "GET",
     mode: "cors", 
@@ -47,21 +48,21 @@ function update_user(){
         updateUser.append("updateUser", username)
         updateUser.append("updateEmail", email)
         updateUser.append("updatePwd", pwd)
-        updateUser.append("updateUserId", 4)
+        updateUser.append("updateUserId", idUser)
     
         fetch(link, {
             method: "POST",  
             mode: "cors",
             body: updateUser
-        }).then ((r)=> { console.log(r)
+        }).then ((r)=> { 
             return r.text()
-        }).then((body)=> console.log(body))
+        })
     })   
     }
 
 function delete_user(){
     buttonSupp.addEventListener("click", function(){
-            let deleteId= 4
+            let deleteId= IdUser
             fetch(link+ "?deleteId="+ deleteId, {
                 method: "GET",  
             }).then((alert("delete done")))
