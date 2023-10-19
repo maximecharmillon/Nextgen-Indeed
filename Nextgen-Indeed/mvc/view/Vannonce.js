@@ -12,7 +12,6 @@ let selectedValue= ""
 
 let createAnnonce= document.getElementById("createAnnonce")
 if(createAnnonce!= null){
-    let idAnnonce= Math.floor(Math.random()*100)
         createAnnonce.addEventListener("click", function(){
             let createCorpId= document.getElementById("createCorpId").value
             let createDate= document.getElementById("createDate").value
@@ -31,9 +30,9 @@ if(createAnnonce!= null){
             insertAnnonce.append("salaire", createSalaire)
             insertAnnonce.append("horaires", "As you want")
             insertAnnonce.append("avantage", createAvantage)
-            insertAnnonce.append("userId", null)
+            insertAnnonce.append("userId", 4)
             insertAnnonce.append("corpId", createCorpId)
-            insertAnnonce.append("jobId", idAnnonce)
+            insertAnnonce.append("jobId", 1)
                 fetch(linka,{
                     method: "POST",
                     mode: "cors",
@@ -89,6 +88,7 @@ function select_annonce2(x){
                 
     }) 
 }
+
 
 function update_annonce(x){
     let modifAnnonce= document.querySelector("#annonce #modif"+x)
@@ -159,23 +159,96 @@ function supp_annonce(x){
         })
     }
 }
-        
+  
+let displayAnnonce = 0
+fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
+    method: "GET",
+    mode: "cors"
+}).then((r)=> {
+    return r.text()
+}).then((body)=> {
+    body= body.split("")
+    for (let i= 0; i<body.length; i++){
+        let title= document.createElement("h1")
+        title.innerText= "Advertising "+body[i]
+        title.setAttribute("id", "title"+body[i])
+        let amorce= document.createElement("p")
+        amorce.setAttribute("id","textShort"+body[i])
+        amorce.innerText= ""
+        let learnMore= document.createElement("button")
+        learnMore.setAttribute("id", "selectAnnonce"+body[i])
+        learnMore.innerText= "Learn More"
+        let fullDesc= document.createElement("p")
+        fullDesc.setAttribute("id", "textAnnonce"+body[i])
+        fullDesc.innerText= ""
+        let apply= document.createElement("button")
+        apply.setAttribute("id", "buttonApply"+body[i])
+        apply.innerText= "Apply"
+        let formApply= document.createElement("form")
+        formApply.setAttribute("id", "form")
+            let labelUser= document.createElement("label")
+            labelUser.setAttribute("for", "username")
+            labelUser.innerText= "Username"
+            let inputUser= document.createElement("input")
+            inputUser.setAttribute("type", "text")
+            inputUser.setAttribute("id", "username")
+            let labelEmail= document.createElement("label")
+            labelEmail.setAttribute("for", "email")
+            labelEmail.innerText= "email"
+            let inputEmail= document.createElement("input")
+            inputEmail.setAttribute("type", "text")
+            inputEmail.setAttribute("id", "email")
+            let labelPhone= document.createElement("label")
+            labelPhone.setAttribute("for", "phone")
+            labelPhone.innerText= "Phone"
+            let inputPhone= document.createElement("input")
+            inputPhone.setAttribute("type", "tel")
+            inputPhone.setAttribute("id", "phone")
+            let labelDate= document.createElement("label")
+            labelDate.setAttribute("for", "date")
+            labelDate.innerText= "Date"
+            let inputDate= document.createElement("input")
+            inputDate.setAttribute("type", "date")
+            inputDate.setAttribute("id", "date")
+            let labelMessage= document.createElement("label")
+            labelMessage.setAttribute("for", "message")
+            labelMessage.innerText= "Message"
+            let inputMessage= document.createElement("textarea")
+            inputMessage.setAttribute("type", "text")
+            inputMessage.setAttribute("id", "message")
+        document.querySelector("main").appendChild(title)
+        document.querySelector("main").appendChild(amorce)
+        document.querySelector("main").appendChild(learnMore)
+        document.querySelector("main").appendChild(fullDesc)
+        document.querySelector("main").appendChild(apply)
+        document.querySelector("main").appendChild(formApply)
+        apply.addEventListener("click", function(){
+            if(apply.innerText== "Apply"){
+                document.querySelector("#form").appendChild(labelUser)
+                document.querySelector("#form").appendChild(inputUser)
+                document.querySelector("#form").appendChild(labelEmail)
+                document.querySelector("#form").appendChild(inputEmail)
+                document.querySelector("#form").appendChild(labelPhone)
+                document.querySelector("#form").appendChild(inputPhone)
+                document.querySelector("#form").appendChild(labelDate)
+                document.querySelector("#form").appendChild(inputDate)
+                document.querySelector("#form").appendChild(labelMessage)
+                document.querySelector("#form").appendChild(inputMessage)  
+                apply.innerText= "Send"
+                formApply.style.display= "block";
+            }
+            else{
+                apply.innerText= "Apply";
+                formApply.style.display= "none";
+            }
+        })
+    select_annonce2(body[i])
+    select_annonce(body[i])
+    }
+})
 
-select_annonce(1);
-select_annonce(2);
-select_annonce(3);
-select_annonce(4);
-select_annonce(5);
-select_annonce(6);
-select_annonce(idAnnonce);
 
-select_annonce2(1);
-select_annonce2(2);
-select_annonce2(3);
-select_annonce2(4);
-select_annonce2(5);
-select_annonce2(6);
-select_annonce2(idAnnonce);
+
 
 modif_annonce(1);
 modif_annonce(2);
@@ -183,7 +256,7 @@ modif_annonce(3);
 modif_annonce(4);
 modif_annonce(5);
 modif_annonce(6);
-modif_annonce(idAnnonce);
+modif_annonce(7);
 
 supp_annonce(1);
 supp_annonce(2);
@@ -191,7 +264,7 @@ supp_annonce(3);
 supp_annonce(4);
 supp_annonce(5);
 supp_annonce(6);
-supp_annonce(idAnnonce);
+supp_annonce(7);
 
 
 

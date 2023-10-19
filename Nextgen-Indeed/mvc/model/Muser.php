@@ -17,6 +17,7 @@ function insertUSer($co, $user, $email, $pwd, $userId, $jobId, $table, $valUser,
     $conn = $co;
 
     $sql= "INSERT INTO ". $table." ( ". $user. ", ". $email. ", ". $pwd. ", ". $userId. ", ". $jobId. " ) VALUES ( '". $valUser. "', '".  $valEmail. "', '".  $valPwd. "', '".  $valUserId. "', '".  $valJobId. "' )";
+    echo $sql;
    
     $conn-> query($sql);
     

@@ -1,4 +1,18 @@
 <?php
+function display($co, $jobId , $table){
+    $conn= $co;
+    $sql= "SELECT ". $jobId. " FROM ". $table; 
+    $result= $conn-> query($sql);
+    if( $result-> num_rows > 0)
+    {
+        while($row= $result-> fetch_assoc())
+        {
+            $tmp[]= $row[$jobId];
+        }
+    }
+    echo implode("", $tmp);
+    
+}
 function select($co, $jobId, $corpId, $userId, $date, $short, $full, $adress, $salaire, $horaires, $avantages, $table, $valJobId){
     $conn= $co;
     $sql= "SELECT ". $jobId. ", ". $corpId. ", ". $userId. ", ". $date. ", ". $short. ", ". $full. ", ". $adress. ", ". $salaire. ", ". $horaires. ", ". $avantages. " FROM " .$table ." WHERE ". $jobId. "=". $valJobId;

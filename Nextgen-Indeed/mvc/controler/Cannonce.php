@@ -13,6 +13,10 @@ $co= new mysqli($serveur, $user, $pwd, $db);
 
 require "../model/Mannonce.php";
 
+if(isset($_GET["displayAnnonce"]))
+{  
+    echo (display($co, "JOB_ID", "ANNONCES"));
+}
 if(isset($_GET["selectAnnonce"]))
 { 
     $annonceId= $_GET["selectAnnonce"];
