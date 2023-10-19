@@ -21,7 +21,8 @@ if(isset($_GET["selectUser"]))
 if(isset($_POST["user"]))
 {   
     echo (insertUser ($co, "USER","EMAIL", "PWD", "USER_ID", "JOB_ID", "USERS", ($_POST["user"]), ($_POST["email"]), ($_POST["pwd"]), ($_POST["userId"]), ($_POST["jobId"])));
-    return header("Location:http://localhost/Nextgen-Indeed/pages/accueil.html");
+    
+    header("Location:http://localhost/Nextgen-Indeed/pages/accueil.html");
     exit();
     // a revoir
 }
@@ -32,10 +33,34 @@ if(isset($_POST["updateUser"]))
 }
 
 if(isset($_GET["deleteId"]))
-{   echo "chat";
+{   
     $userId= $_GET["deleteId"];
     echo (deleteUser ($co, "USERS", "USER_ID", $userId ));
 }
 
+if (($_SERVER['REQUEST_METHOD'] === 'POST') !== null) {
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    $username = $data['username'];
+    $password = $data['password'];
+
+    $query = "SELECT User_Name, Pwd, Id FROM USER WHERE User_Name = ? LIMIT 1";
+    $value = $co->prepare($query);
+    $value->bind_param("s", $username); 
+    $value->execute();
+    $result = $value->get_result();
+    $user = $result->fetch_assoc();
+
+    // var_dump($user);
+
+    if ($password === $user['Pwd']) {
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false]);
+    }
+
+    $value->close();
+    $co->close();
+}
 
 ?>

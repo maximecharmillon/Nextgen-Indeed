@@ -112,6 +112,7 @@ function update_annonce(x){
                 return r.text()
             })
         })
+    
     }   
 }
 
@@ -130,8 +131,12 @@ function modif_annonce(x){
                 console.log(modifAnnonce.textContent)
                 form.style.display = "none";
                 modifAnnonce.innerHTML= "Modify";
+                location.reload()
                 } 
+                
         })
+        
+    
     }
 }
 

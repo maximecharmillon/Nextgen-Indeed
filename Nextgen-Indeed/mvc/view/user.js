@@ -1,5 +1,7 @@
 let link= "http://localhost/Nextgen-Indeed/mvc/controler/Cuser.php";
 
+let user= 4
+
 let createUser= document.getElementById("createUser")
 if(createUser!= null){
     
@@ -11,22 +13,24 @@ if(createUser!= null){
         insertUser.append("user", createUsername)
         insertUser.append("pwd", createPwd)
         insertUser.append("email", createEmail)
-        insertUser.append("userId", 4)
+        insertUser.append("userId", user)
         insertUser.append("jobId", 7)
             fetch(link,{
                 method: "POST",
                 mode: "cors",
                 body: insertUser
             }).then((r)=> { 
-                console.log(r)
-            }).then((body)=> console.log(body))
+                return r.text()
+            })
+        document.location.href="http://localhost/Nextgen-Indeed/pages/accueil.html"
+
     })
 }
 
 
 
 function select_user(){
-    let userId= 4
+    let userId= user
 fetch(link+ "?selectUser="+ encodeURIComponent(userId), {
     method: "GET",
     mode: "cors", 
@@ -49,7 +53,7 @@ function update_user(){
         updateUser.append("updateUser", username)
         updateUser.append("updateEmail", email)
         updateUser.append("updatePwd", pwd)
-        updateUser.append("updateUserId", 1)
+        updateUser.append("updateUserId", user)
     
         fetch(link, {
             method: "POST",  
@@ -58,15 +62,16 @@ function update_user(){
         }).then ((r)=> { 
             return r.text()
         })
+    location.reload()
     })   
     }
 
 function delete_user(){
     buttonSupp.addEventListener("click", function(){
-            let deleteId= 4
+            let deleteId= user
             fetch(link+ "?deleteId="+ deleteId, {
                 method: "GET",  
-            }).then((alert("delete done")))
+            }).then((alert("deleting done")))
         })
     }
         
@@ -79,12 +84,12 @@ if (buttonModif!= null){
 buttonModif.addEventListener("click", function(){
     if(getComputedStyle(form).display == "none"){
         form.style.display = "block";
-        buttonModif.innerHTML= "Envoyer";
+        buttonModif.innerHTML= "Send";
         update_user();
         }
     else{
         form.style.display = "none";
-        buttonModif.innerHTML= "Modifier";
+        buttonModif.innerHTML= "Modify";
     } 
 })
 }
@@ -93,15 +98,41 @@ buttonModif.addEventListener("click", function(){
 let buttonSupp= document.querySelector("#user #supp")
 if(buttonSupp!= null){
     buttonSupp.addEventListener("click", function(){
-        if(buttonSupp.innerHTML== "Supprimer"){
-            buttonSupp.innerHTML= "Vous êtes sur !";
+        if(buttonSupp.innerHTML== "Delete"){
+            buttonSupp.innerHTML= "Are you sure !";
             delete_user();
             }
         else{
             
-            buttonSupp.innerHTML= "Supprimer";
+            buttonSupp.innerHTML= "Delete";
         } 
     })
 }
 
-
+let password= document.getElementById("loginForm")
+if(password!= null){
+    document.addEventListener("click", function(event) {
+        event.preventDefault();
+    
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("pwd").value;
+        console.log(password)
+    
+        fetch("http://localhost/Cuser.php", {
+            method: "POST",
+            body: JSON.stringify({ username, password }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = "../../pages/accueil.html";
+            } else {
+                document.getElementById("message").innerHTML = "Login failed. Please try again.";
+            }
+        });
+    });
+    
+}
