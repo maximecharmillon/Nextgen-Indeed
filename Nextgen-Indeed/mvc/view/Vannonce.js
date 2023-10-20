@@ -1,5 +1,6 @@
 let linka= "http://localhost/Nextgen-Indeed/mvc/controler/Cannonce.php"
 
+idJob= 1
 const salaryRange = document.getElementById("salaryRange");
   const selectedSalary = document.getElementById("selectedSalary");
 let selectedValue= ""
@@ -27,12 +28,12 @@ if(createAnnonce!= null){
             insertAnnonce.append("short", createShort)
             insertAnnonce.append("full", createFull)
             insertAnnonce.append("adresse", createAdresse)
-            insertAnnonce.append("salaire", createSalaire)
-            insertAnnonce.append("horaires", "As you want")
+            insertAnnonce.append("salaire", "As you want")  // c'est fait exprès oui tkt popiette
+            insertAnnonce.append("horaires", createSalaire)
             insertAnnonce.append("avantage", createAvantage)
-            insertAnnonce.append("userId", 4)
+            insertAnnonce.append("userId", idUser)
             insertAnnonce.append("corpId", createCorpId)
-            insertAnnonce.append("jobId", 1)
+            insertAnnonce.append("jobId", idJob)
                 fetch(linka,{
                     method: "POST",
                     mode: "cors",
@@ -91,12 +92,12 @@ function select_annonce2(x){
 
 
 function update_annonce(x){
-    let modifAnnonce= document.querySelector("#annonce #modif"+x)
+    let modifAnnonce= document.querySelector("#modif"+x)
     if(modifAnnonce!= null){
         modifAnnonce.addEventListener("click", function(){
             let updateDate= document.getElementById("date").value
-            let updateShort= document.getElementById("short").value
-            let updateAdresse= document.getElementById("adresse").value
+            let updateShort= document.getElementById("ShortDescription").value
+            let updateAdresse= document.getElementById("adress").value
 
             let updateAnnonce= new FormData
             updateAnnonce.append("updateDate", updateDate)
@@ -117,21 +118,22 @@ function update_annonce(x){
 }
 
 function modif_annonce(x){
-    let modifAnnonce= document.querySelector("#annonce #modif"+x)
+    let modifAnnonce= document.querySelector(" #modif"+x)
+    console.log(modifAnnonce)
     if (modifAnnonce!= null){
-        let form= document.querySelector("#annonce form")
+        let form= document.querySelector("#formUpdate"+x)
         modifAnnonce.addEventListener("click", function(){
-            if(modifAnnonce.textContent== "Modify"){
-                console.log(modifAnnonce.textContent)
+            if(modifAnnonce.textContent== "Update"){
                 form.style.display = "block";
                 modifAnnonce.innerHTML= "Send";
                 update_annonce(x);
+
                 }
             else{
-                console.log(modifAnnonce.textContent)
+                
                 form.style.display = "none";
-                modifAnnonce.innerHTML= "Modify";
-                location.reload()
+                modifAnnonce.innerHTML= "Update";
+                
                 } 
                 
         })
@@ -141,7 +143,7 @@ function modif_annonce(x){
 }
 
 function delete_annonce(x){
-    let suppAnnonce= document.querySelector("#annonce #supp"+x)
+    let suppAnnonce= document.querySelector("#supp"+x)
     suppAnnonce.addEventListener("click", function(){
             let deleteId= x
             fetch(linka+ "?deleteId="+ deleteId, {
@@ -150,7 +152,7 @@ function delete_annonce(x){
         })
     }
 function supp_annonce(x){
-    let suppAnnonce= document.querySelector("#annonce #supp"+x)
+    let suppAnnonce= document.querySelector("#supp"+x)
     if(suppAnnonce!= null){
         suppAnnonce.addEventListener("click", function(){
             if(suppAnnonce.innerHTML== "Delete"){
@@ -165,6 +167,7 @@ function supp_annonce(x){
     }
 }
   
+
 let displayAnnonce = 0
 fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
     method: "GET",
@@ -176,6 +179,7 @@ fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
     for (let i= 0; i<body.length; i++){
         let title= document.createElement("h1")
         title.innerText= "Advertising "+body[i]
+        title.style.color= "#2596BE";
         title.setAttribute("id", "title"+body[i])
         let amorce= document.createElement("p")
         amorce.setAttribute("id","textShort"+body[i])
@@ -183,12 +187,18 @@ fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
         let learnMore= document.createElement("button")
         learnMore.setAttribute("id", "selectAnnonce"+body[i])
         learnMore.innerText= "Learn More"
+        learnMore.style.backgroundColor= "#2596BE";
+        learnMore.style.color= "white";
+        learnMore.style.borderRadius= "10px";
         let fullDesc= document.createElement("p")
         fullDesc.setAttribute("id", "textAnnonce"+body[i])
         fullDesc.innerText= ""
         let apply= document.createElement("button")
         apply.setAttribute("id", "buttonApply"+body[i])
         apply.innerText= "Apply"
+        apply.style.backgroundColor= "#2596BE";
+        apply.style.color= "white";
+        apply.style.borderRadius= "10px";
         let formApply= document.createElement("form")
         formApply.setAttribute("id", "form")
             let labelUser= document.createElement("label")
@@ -221,13 +231,15 @@ fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
             let inputMessage= document.createElement("textarea")
             inputMessage.setAttribute("type", "text")
             inputMessage.setAttribute("id", "message")
-        document.querySelector("main").appendChild(title)
-        document.querySelector("main").appendChild(amorce)
-        document.querySelector("main").appendChild(learnMore)
-        document.querySelector("main").appendChild(fullDesc)
-        document.querySelector("main").appendChild(apply)
-        document.querySelector("main").appendChild(formApply)
-        apply.addEventListener("click", function(){
+        let acceuil= document.querySelector("#acceuil")
+        if(acceuil!= null){
+            document.querySelector("#acceuil").appendChild(title)
+            document.querySelector("#acceuil").appendChild(amorce)
+            document.querySelector("#acceuil").appendChild(learnMore)
+            document.querySelector("#acceuil").appendChild(fullDesc)
+            document.querySelector("#acceuil").appendChild(apply)
+            document.querySelector("#acceuil").appendChild(formApply)
+            apply.addEventListener("click", function(){
             if(apply.innerText== "Apply"){
                 document.querySelector("#form").appendChild(labelUser)
                 document.querySelector("#form").appendChild(inputUser)
@@ -247,29 +259,92 @@ fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
                 formApply.style.display= "none";
             }
         })
-    select_annonce2(body[i])
-    select_annonce(body[i])
+        select_annonce2(body[i])
+        select_annonce(body[i])
+        let br= document.createElement("br")
+        document.querySelector("#acceuil").appendChild(br)
+        }
+        
+   
+    }
+})
+
+
+fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
+    method: "GET",
+    mode: "cors"
+}).then((r)=> {
+    return r.text()
+}).then((body)=> {
+    body= body.split("")
+    for (let i= 0; i<body.length; i++){
+        let divModify= document.createElement("div")
+    divModify.setAttribute("id", "divUpdate"+body[i])
+    divModify.style.border= "1px black solid"
+    divModify.style.borderRadius= "10px"
+    divModify.style.padding= "1em"
+    let doc= document.querySelector("#profilePage")
+    if(doc!= null){
+        document.querySelector("#profilePage").appendChild(divModify)
+        let amorce= document.createElement("p")
+        amorce.setAttribute("id","textShort"+body[i])
+        amorce.innerText= ""
+        let modifyButton= document.createElement("button")
+        modifyButton.setAttribute("id", "modif"+body[i])
+        modifyButton.innerText= "Update"
+        modifyButton.style.backgroundColor= "#2596BE";
+        modifyButton.style.color= "white";
+        modifyButton.style.borderRadius= "10px";
+        let deleteButton= document.createElement("button")
+        deleteButton.setAttribute("id", "supp"+body[i])
+        deleteButton.innerText= "Delete"
+        deleteButton.style.backgroundColor= "#2596BE";
+        deleteButton.style.color= "white";
+        deleteButton.style.borderRadius= "10px";
+        let formModify= document.createElement("form")
+        formModify.setAttribute("id", "formUpdate"+body[i])
+        formModify.style.display= "none"
+            let labelAdress= document.createElement("label")
+            labelAdress.setAttribute("for", "adress")
+            labelAdress.innerText= "adress"
+            let inputAdress= document.createElement("input")
+            inputAdress.setAttribute("type", "text")
+            inputAdress.setAttribute("id", "adress")
+            let labelShortDesc= document.createElement("label")
+            labelShortDesc.setAttribute("for", "ShortDescription")
+            labelShortDesc.innerText= "Short description"
+            let inputShortDesc= document.createElement("input")
+            inputShortDesc.setAttribute("type", "text")
+            inputShortDesc.setAttribute("id", "ShortDescription")
+            let labelDate= document.createElement("label")
+            labelDate.setAttribute("for", "date")
+            labelDate.innerText= "Date"
+            let inputDate= document.createElement("input")
+            inputDate.setAttribute("type", "date")
+            inputDate.setAttribute("id", "date")
+        document.querySelector("#divUpdate"+body[i]).appendChild(amorce)
+        document.querySelector("#divUpdate"+body[i]).appendChild(modifyButton)
+        document.querySelector("#divUpdate"+body[i]).appendChild(deleteButton)
+        document.querySelector("#divUpdate"+body[i]).appendChild(formModify)
+        document.querySelector("#divUpdate"+body[i]).appendChild(formModify)
+        document.querySelector("#formUpdate"+body[i]).appendChild(labelAdress)
+        document.querySelector("#formUpdate"+body[i]).appendChild(inputAdress)
+        document.querySelector("#formUpdate"+body[i]).appendChild(labelDate)
+        document.querySelector("#formUpdate"+body[i]).appendChild(inputDate)
+        document.querySelector("#formUpdate"+body[i]).appendChild(labelShortDesc)
+        document.querySelector("#formUpdate"+body[i]).appendChild(inputShortDesc)
+        modif_annonce(body[i])
+        select_annonce2(body[i])
+        supp_annonce(body[i])
+        let br= document.createElement("br")
+        document.querySelector("#profilePage").appendChild(br)
+    }
     }
 })
 
 
 
 
-modif_annonce(1);
-modif_annonce(2);
-modif_annonce(3);
-modif_annonce(4);
-modif_annonce(5);
-modif_annonce(6);
-modif_annonce(7);
-
-supp_annonce(1);
-supp_annonce(2);
-supp_annonce(3);
-supp_annonce(4);
-supp_annonce(5);
-supp_annonce(6);
-supp_annonce(7);
 
 
 
