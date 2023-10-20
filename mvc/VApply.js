@@ -1,4 +1,4 @@
-let link = "http://localhost/config/controller.php";
+let link = "http://localhost/config/CApply.php";
 
 let FormApply1 = document.getElementById("form1");
 let FormSend1 = document.getElementById("SendApply1");

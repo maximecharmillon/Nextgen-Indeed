@@ -11,7 +11,7 @@
         echo 'Not connected to the database';
     }
 
-    require 'model.php';
+    require 'MApply.php';
 
 
     if(isset($_POST["username"])){
