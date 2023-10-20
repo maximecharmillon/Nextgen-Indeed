@@ -43,4 +43,20 @@
     
     }
 
+    if(isset($_POST["usernameUp"])){
+        echo (update($co, "EXPEDITEUR","DATE", "JOB_ID", "MESSAGERIE", ($_POST["username"]), ($_POST["date"]), ($_POST["job_id"])));
+        if ($co->query($sql) === TRUE) {
+            echo "New record updated successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $co->error;
+        }
+    }
+
+    if(isset($_GET['Selectdelete'])){
+
+        $job_id = $_GET['Selectdelete'];
+        echo (deleted($co, "JOB_ID", "MESSAGERIE", $job_id));
+    
+    }    
+
 ?>

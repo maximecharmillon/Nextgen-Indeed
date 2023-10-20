@@ -58,14 +58,14 @@ if(FormApply2!=null){
 
 function select_message(x){
     let selectMessageValue = x;
-    link += `?Selectmessage=${encodeURIComponent(selectMessageValue)}`;
+    linka = link +'?Selectmessage=' + encodeURIComponent(selectMessageValue);
 
-    fetch(link, {
+    fetch(linka, {
         method: "GET",
         mode: "cors"
     })
-    .then((response) => {
-        if (!response.ok) {
+    .then((r) => {
+        if (!r.ok) {
             throw new Error("erreur sur le réseau");
         }
         return response.text();
@@ -78,3 +78,51 @@ function select_message(x){
     });
 
 }
+
+function update_message(){
+
+    let UpdateUsername1 = document.getElementById("username").value;
+    let UpdateMessage1 = document.getElementById("message").value;
+    let UpdateDate1 = document.getElementById("createdate").value;
+
+    let insertUpdate = new FormData();
+
+    insertUpdate.append("usernameUp", UpdateUsername1);
+    insertUpdate.append("messageUp", UpdateMessage1);
+    insertUpdate.append("dateUp", UpdateDate1);
+    insertUpdate.append("job_id",1);
+
+
+    fetch(link, {
+        method: "POST",  
+        mode: "cors",
+        body: insertUpdate
+    }).then ((r)=> {
+        return r.text()
+    })
+}
+
+function delet_message(){
+
+    let selectDeleteValue = x;
+    linkb = link +'?Selectdelete=' + encodeURIComponent(selectDeleteValue);
+
+    fetch(linkb, {
+        method: "GET",  
+        mode: "cors",
+    }).then((r) => {
+        if (!r.ok) {
+            throw new Error("erreur sur le réseau");
+        }
+        return response.text();
+    })
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error("Une erreur s'est produite : " + error);
+    });
+
+}
+
+
