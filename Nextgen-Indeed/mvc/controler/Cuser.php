@@ -20,7 +20,7 @@ if(isset($_GET["selectUser"]))
 
 if(isset($_POST["user"]))
 {   
-    echo (insertUser ($co, "USER","EMAIL", "PWD", "USER_ID", "JOB_ID", "USERS", ($_POST["user"]), ($_POST["email"]), ($_POST["pwd"]), ($_POST["userId"]), ($_POST["jobId"])));
+    echo (insertUser ($co, "USER","EMAIL", "PWD", "JOB_ID", "USERS", ($_POST["user"]), ($_POST["email"]), ($_POST["pwd"]), ($_POST["jobId"])));
     
     header("Location:http://localhost/Nextgen-Indeed/pages/accueil.html");
     exit();

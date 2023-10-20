@@ -1,6 +1,7 @@
 let link= "http://localhost/Nextgen-Indeed/mvc/controler/Cuser.php";
 
-let user= 4
+let user= select_userId()
+select_user();
 
 let createUser= document.getElementById("createUser")
 if(createUser!= null){
@@ -13,8 +14,7 @@ if(createUser!= null){
         insertUser.append("user", createUsername)
         insertUser.append("pwd", createPwd)
         insertUser.append("email", createEmail)
-        insertUser.append("userId", user)
-        insertUser.append("jobId", 7)
+        insertUser.append("jobId", null)
             fetch(link,{
                 method: "POST",
                 mode: "cors",
@@ -22,15 +22,53 @@ if(createUser!= null){
             }).then((r)=> { 
                 return r.text()
             })
-        document.location.href="http://localhost/Nextgen-Indeed/pages/accueil.html"
-
+          
+        document.location.href="http://localhost/Nextgen-Indeed/pages/Profile.html"
+            
     })
 }
 
+function select_userId(createUsername){
+        displayId = new FormData
+        displayId.append("user", createUser)
+        fetch(link, {
+            methode: "POST",
+            mode: "cors",
+            body: displayId
+        })
+        let displayUsername= 0
+        fetch(link+ "?selectUserId="+ encodeURIComponent(displayUsername), {
+            method: "GET",
+            mode: "cors", 
+        }).then((r)=> { return r.text()
+        }).then((body)=> {
+
+            return body
+            
+        })
+        
+}
+
+    let signIn= document.getElementById("loginForm")
+if(signIn!= null){
+    
+    signIn.addEventListener("click", function(){
+        let connUser= document.getElementById("username").value
+        fetch(link+ "?selectUserId="+ encodeURIComponent(connUser), {
+            method: "GET",
+            mode: "cors", 
+        }).then((r)=> { return r.text()
+        }).then((body)=> {
+            return body
+            
+        })
+        
+})
+}
 
 
 function select_user(){
-    let userId= user
+    let userId= select_userId()
 fetch(link+ "?selectUser="+ encodeURIComponent(userId), {
     method: "GET",
     mode: "cors", 
@@ -43,6 +81,8 @@ fetch(link+ "?selectUser="+ encodeURIComponent(userId), {
     
 })
 }
+
+
 
 function update_user(){
     buttonModif.addEventListener("click", function(){
@@ -76,7 +116,7 @@ function delete_user(){
     }
         
 
-select_user();
+
 
 let buttonModif= document.querySelector("#user #modif")
 if (buttonModif!= null){
@@ -127,7 +167,7 @@ if(password!= null){
                 body: { username, password },
                 
             })
-            .then(response => JSON.stringify(response))
+            .then(res => res.text)
             .then(data => {
                 (body)=> console.log((body))
                 if (data.success) {

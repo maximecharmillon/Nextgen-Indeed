@@ -13,10 +13,10 @@ function selectUser($co, $user, $email, $pwd, $userId, $jobId, $table, $valUserI
     }
 }
 
-function insertUSer($co, $user, $email, $pwd, $userId, $jobId, $table, $valUser, $valEmail, $valPwd, $valUserId, $valJobId){
+function insertUSer($co, $user, $email, $pwd, $jobId, $table, $valUser, $valEmail, $valPwd, $valJobId){
     $conn = $co;
 
-    $sql= "INSERT INTO ". $table." ( ". $user. ", ". $email. ", ". $pwd. ", ". $userId. ", ". $jobId. " ) VALUES ( '". $valUser. "', '".  $valEmail. "', '".  $valPwd. "', '".  $valUserId. "', '".  $valJobId. "' )";
+    $sql= "INSERT INTO ". $table." ( ". $user. ", ". $email. ", ". $pwd. ", ". $jobId. " ) VALUES ( '". $valUser. "', '".  $valEmail. "', '".  $valPwd. "', '".  $valJobId. "' )";
     echo $sql;
    
     $conn-> query($sql);

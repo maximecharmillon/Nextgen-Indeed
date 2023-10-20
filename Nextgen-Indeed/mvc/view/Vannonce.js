@@ -29,7 +29,7 @@ function select_annonce(x){
 }
     
 
-function select_annonce2(x){
+function select_amorce(x){
         let jobId= x
         fetch(linka+ "?selectAnnonce2="+ encodeURIComponent(jobId), {
             method: "GET",
@@ -257,7 +257,7 @@ fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
                 formApply.style.display= "none";
             }
         })
-        select_annonce2(body[i])
+        select_amorce(body[i])
         select_annonce(body[i])
         let br= document.createElement("br")
         document.querySelector("#acceuil").appendChild(br)
@@ -332,7 +332,7 @@ fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
         document.querySelector("#formUpdate"+body[i]).appendChild(labelShortDesc)
         document.querySelector("#formUpdate"+body[i]).appendChild(inputShortDesc)
         modif_annonce(body[i])
-        select_annonce2(body[i])
+        select_amorce(body[i])
         supp_annonce(body[i])
         let br= document.createElement("br")
         document.querySelector("#profilePage").appendChild(br)
