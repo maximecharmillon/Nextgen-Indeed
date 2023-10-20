@@ -1,5 +1,125 @@
 let linka= "http://localhost/Nextgen-Indeed/mvc/controler/Cannonce.php"
 
+
+function select_annonce(x){
+    let annonce= "selectAnnonce"+x
+    let selectAnnonce= document.getElementById(annonce)
+    if(selectAnnonce!= null){
+        selectAnnonce.addEventListener("click", function(){
+            let jobId= x
+            fetch(linka+ "?selectAnnonce="+ encodeURIComponent(jobId), {
+                method: "GET",
+                mode:"cors"
+            }).then((r)=> { 
+                return r.text()
+            }).then((body)=> {
+                let texta= "textAnnonce"+x
+                let getAnnonce= document.getElementById(texta)
+                    getAnnonce.innerHTML= body;
+                if(selectAnnonce.textContent== "Learn More"){
+                    selectAnnonce.innerHTML= "Learn Less"
+                }
+                else{
+                    selectAnnonce.innerHTML= "Learn More"
+                    getAnnonce.innerHTML= null
+                }
+            })
+        }) 
+    }
+}
+    
+
+function select_annonce2(x){
+        let jobId= x
+        fetch(linka+ "?selectAnnonce2="+ encodeURIComponent(jobId), {
+            method: "GET",
+            mode:"cors"
+        }).then((r)=> { 
+            return r.text()
+        }).then((body)=> {
+            let texta= "textShort"+x
+            let getAnnonce= document.getElementById(texta)
+            if(getAnnonce!= null){
+                getAnnonce.innerText= body;
+            }
+                
+    }) 
+}
+
+
+function update_annonce(x){
+    let modifAnnonce= document.querySelector("#modif"+x)
+    if(modifAnnonce!= null){
+        modifAnnonce.addEventListener("click", function(){
+            let updateDate= document.getElementById("date").value
+            let updateShort= document.getElementById("ShortDescription").value
+            let updateAdresse= document.getElementById("adress").value
+            let updateAnnonce= new FormData
+            updateAnnonce.append("updateDate", updateDate)
+            updateAnnonce.append("updateShort", updateShort)
+            updateAnnonce.append("updateAdresse", updateAdresse)
+            updateAnnonce.append("updateJobId", x)
+
+            fetch(linka, {
+                method: "POST",  
+                mode: "cors",
+                body: updateAnnonce
+            }).then ((r)=> {
+                return r.text()
+            })
+        })
+        location.reload()
+    }   
+}
+
+function modif_annonce(x){
+    let modifAnnonce= document.querySelector(" #modif"+x)
+    console.log(modifAnnonce)
+    if (modifAnnonce!= null){
+        let form= document.querySelector("#formUpdate"+x)
+        modifAnnonce.addEventListener("click", function(){
+            if(modifAnnonce.textContent== "Update"){
+                form.style.display = "block";
+                modifAnnonce.innerHTML= "Send";
+                update_annonce(x);
+
+                }
+            else{
+                
+                form.style.display = "none";
+                modifAnnonce.innerHTML= "Update";  
+                }     
+        })
+    }
+}
+
+function delete_annonce(x){
+    let suppAnnonce= document.querySelector("#supp"+x)
+    suppAnnonce.addEventListener("click", function(){
+            let deleteId= x
+            fetch(linka+ "?deleteId="+ deleteId, {
+                method: "GET",  
+            }).then((r)=> console.log(r))
+        })
+        location.reload()
+    }
+
+function supp_annonce(x){
+    let suppAnnonce= document.querySelector("#supp"+x)
+    if(suppAnnonce!= null){
+        suppAnnonce.addEventListener("click", function(){
+            if(suppAnnonce.innerHTML== "Delete"){
+                suppAnnonce.innerHTML= "Vous etes sur !";
+                delete_annonce(x);
+                }
+            else{
+                
+                suppAnnonce.innerHTML= "Supprimer";
+            } 
+        })
+    }
+}
+  
 idJob= 1
 const salaryRange = document.getElementById("salaryRange");
   const selectedSalary = document.getElementById("selectedSalary");
@@ -10,6 +130,7 @@ let selectedValue= ""
             selectedSalary.textContent = `Select a salary : $${selectedValue}/month`;
         });
   }
+
 
 let createAnnonce= document.getElementById("createAnnonce")
 if(createAnnonce!= null){
@@ -44,129 +165,6 @@ if(createAnnonce!= null){
         });
     }
 
-function select_annonce(x){
-    let annonce= "selectAnnonce"+x
-    let selectAnnonce= document.getElementById(annonce)
-    if(selectAnnonce!= null){
-        selectAnnonce.addEventListener("click", function(){
-            let jobId= x
-            fetch(linka+ "?selectAnnonce="+ encodeURIComponent(jobId), {
-                method: "GET",
-                mode:"cors"
-            }).then((r)=> { 
-                return r.text()
-            }).then((body)=> {
-                let texta= "textAnnonce"+x
-                let getAnnonce= document.getElementById(texta)
-                    getAnnonce.innerHTML= body;
-                if(selectAnnonce.textContent== "Learn More"){
-                    selectAnnonce.innerHTML= "Learn Less"
-                }
-                else{
-                    selectAnnonce.innerHTML= "Learn More"
-                    getAnnonce.innerHTML= null
-                }
-                
-            })
-        }) 
-    }
-    }
-    
-
-function select_annonce2(x){
-        let jobId= x
-        fetch(linka+ "?selectAnnonce2="+ encodeURIComponent(jobId), {
-            method: "GET",
-            mode:"cors"
-        }).then((r)=> { 
-            return r.text()
-        }).then((body)=> {
-            let texta= "textShort"+x
-            let getAnnonce= document.getElementById(texta)
-            if(getAnnonce!= null){
-                getAnnonce.innerText= body;
-            }
-                
-    }) 
-}
-
-
-function update_annonce(x){
-    let modifAnnonce= document.querySelector("#modif"+x)
-    if(modifAnnonce!= null){
-        modifAnnonce.addEventListener("click", function(){
-            let updateDate= document.getElementById("date").value
-            let updateShort= document.getElementById("ShortDescription").value
-            let updateAdresse= document.getElementById("adress").value
-
-            let updateAnnonce= new FormData
-            updateAnnonce.append("updateDate", updateDate)
-            updateAnnonce.append("updateShort", updateShort)
-            updateAnnonce.append("updateAdresse", updateAdresse)
-            updateAnnonce.append("updateJobId", x)
-
-            fetch(linka, {
-                method: "POST",  
-                mode: "cors",
-                body: updateAnnonce
-            }).then ((r)=> {
-                return r.text()
-            })
-        })
-    
-    }   
-}
-
-function modif_annonce(x){
-    let modifAnnonce= document.querySelector(" #modif"+x)
-    console.log(modifAnnonce)
-    if (modifAnnonce!= null){
-        let form= document.querySelector("#formUpdate"+x)
-        modifAnnonce.addEventListener("click", function(){
-            if(modifAnnonce.textContent== "Update"){
-                form.style.display = "block";
-                modifAnnonce.innerHTML= "Send";
-                update_annonce(x);
-
-                }
-            else{
-                
-                form.style.display = "none";
-                modifAnnonce.innerHTML= "Update";
-                
-                } 
-                
-        })
-        
-    
-    }
-}
-
-function delete_annonce(x){
-    let suppAnnonce= document.querySelector("#supp"+x)
-    suppAnnonce.addEventListener("click", function(){
-            let deleteId= x
-            fetch(linka+ "?deleteId="+ deleteId, {
-                method: "GET",  
-            }).then((r)=> console.log(r))
-        })
-    }
-function supp_annonce(x){
-    let suppAnnonce= document.querySelector("#supp"+x)
-    if(suppAnnonce!= null){
-        suppAnnonce.addEventListener("click", function(){
-            if(suppAnnonce.innerHTML== "Delete"){
-                suppAnnonce.innerHTML= "Vous etes sur !";
-                delete_annonce(x);
-                }
-            else{
-                
-                suppAnnonce.innerHTML= "Supprimer";
-            } 
-        })
-    }
-}
-  
 
 let displayAnnonce = 0
 fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {

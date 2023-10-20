@@ -62,8 +62,8 @@ function update_user(){
         }).then ((r)=> { 
             return r.text()
         })
-    location.reload()
-    })   
+    }) 
+    location.reload()  
     }
 
 function delete_user(){
@@ -109,6 +109,8 @@ if(buttonSupp!= null){
     })
 }
 
+
+
 let password= document.getElementById("loginForm")
 if(password!= null){
     document.addEventListener("click", function(event) {
@@ -117,22 +119,25 @@ if(password!= null){
         let username = document.getElementById("username").value;
         let password = document.getElementById("pwd").value;
         console.log(password)
-    
-        fetch("http://localhost/Cuser.php", {
-            method: "POST",
-            body: JSON.stringify({ username, password }),
-            headers: {
-                "Content-Type": "application/json",
-            },
+        let buttonSignIn= document.getElementById("loginForm")
+        buttonSignIn.addEventListener("click", ()=>{
+            fetch("http://localhost/Nextgen-Indeed/mvc/controler/Cuser.php", {
+                method: "POST",
+                mode: "cors",
+                body: { username, password },
+                
+            })
+            .then(response => JSON.stringify(response))
+            .then(data => {
+                (body)=> console.log((body))
+                if (data.success) {
+                    window.location.href = "../../pages/accueil.html";
+                } else {
+                    let fail= document.getElementById("message")
+                    if(fail!= null)
+                        fail.innerHTML = "Login failed. Please try again.";
+                }
+            });
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                window.location.href = "../../pages/accueil.html";
-            } else {
-                document.getElementById("message").innerHTML = "Login failed. Please try again.";
-            }
-        });
     });
-    
 }

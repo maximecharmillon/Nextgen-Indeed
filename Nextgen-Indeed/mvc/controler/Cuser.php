@@ -39,12 +39,11 @@ if(isset($_GET["deleteId"]))
 }
 
 if (($_SERVER['REQUEST_METHOD'] === 'POST') !== null) {
-    $data = json_decode(file_get_contents('php://input'), true);
+    $data = ($_SERVEUR['REQUEST_METHOD']);
 
     $username = $data['username'];
-    $password = $data['password'];
-
-    $query = "SELECT User_Name, Pwd, Id FROM USER WHERE User_Name = ? LIMIT 1";
+    $password = $data['pwd'];
+    $query = "SELECT PWD FROM USERS WHERE User_Name = "+ $username;
     $value = $co->prepare($query);
     $value->bind_param("s", $username); 
     $value->execute();
@@ -53,7 +52,7 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') !== null) {
 
     // var_dump($user);
 
-    if ($password === $user['Pwd']) {
+    if ($password === $user['PWD']) {
         echo json_encode(['success' => true]);
     } else {
         echo json_encode(['success' => false]);
