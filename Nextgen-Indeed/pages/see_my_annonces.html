@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="accueil.css">
+</head>
+<body>
+    <header class="d-flex mt-2" style="width: 100%; gap: 16%; align-items: center;">
+        <img src="image/HYde.png" style="width: 11%; float: top-left;">
+        <div style="margin-left: 60%; height: 20%;">
+          <a href="sign-in.html" class="btn border-none" style="background-color: #2596BE; color: white;">Sign In</a>
+          <a href="sign-up.html" class="btn border-none" style="background-color: #2596BE; color: white;">Sign Up</a>
+        </div>
+    </header>
+    <main>
+        <nav class="navbar navbar-expand-md navbar-light d-flex align-items-center" id="navbar-example2" style="background-color: #F0F3F4DE;">
+            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav navbar-nav nav-underline">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="accueil.html">See all job announces</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" aria-current="page" href="see_my_annonces.html">See my annouces</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="create_annonces.html">Create an announce</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Profile.html">Profile</a>
+                    </li>
+                </ul>
+                <form class="d-flex mt-3 mb-3" role="search" style="margin-left: 48%;">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1 class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"> All my adverts </h1>
+            <img src="image/Researching-amico.png" alt="job offers-bro" class="img-fluid mt-5 mb-5" style="width: 30%; margin-left: 35%;">
+            <div class="col-lg-15">
+                <div class="row" style="gap: 2%;">
+                    <div class="card mb-5 mt-5" style="width: 30%; background-color: #F0F3F4;">
+                        <h2>Anonnce 1</h2>
+                        <p id="textShort1">Short description</p>
+                        <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;" id="selectAnnonce1">Learn More</button>
+                        <p id="textAnnonce1"></p>
+                    </div>
+                    <div class="card mb-5 mt-5" style="width: 30%; background-color: #F0F3F4;">
+                        <h2>Anonnce 2</h2>
+                        <p id="textShort2">Short description</p>
+                        <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;" id="selectAnnonce2">Learn More</button>
+                        <p id="textAnnonce2"></p>
+                    </div>
+                    <div class="card mb-5 mt-5" style="width: 30%; background-color: #F0F3F4;">
+                        <h2>Anonnce 3</h2>
+                        <p id="textShort3">Short description</p>
+                        <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;" id="selectAnnonce3">Learn More</button>
+                        <p id="textAnnonce3"></p>
+                    </div>
+                    <div class="card mb-5 mt-5" style="width: 30%; background-color: #F0F3F4;">
+                        <h2>Anonnce 4</h2>
+                        <p id="textShort4">Short description</p>
+                        <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;" id="selectAnnonce4">Learn More</button>
+                        <p id="textAnnonce4"></p>
+                    </div>
+                    <div class="card mb-5 mt-5" style="width: 30%; background-color: #F0F3F4;">
+                        <h2>Anonnce 5</h2>
+                        <p id="textShort5">Short description</p>
+                        <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;" id="selectAnnonce5">Learn More</button>
+                        <p id="textAnnonce5"></p>
+                    </div>
+                    <div class="card mb-5 mt-5" style="width: 30%; background-color: #F0F3F4;">
+                        <h2>Anonnce 6</h2>
+                        <p id="textShort6">Short description</p>
+                        <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;" id="selectAnnonce6">Learn More</button>
+                        <p id="textAnnonce6"></p>
+                    </div>
+                    <div class="card mb-5 mt-5" style="width: 30%; background-color: #F0F3F4;">
+                        <h2>Anonnce 7</h2>
+                        <p id="textShort7">Short description</p>
+                        <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;" id="selectAnnonce7">Learn More</button>
+                        <p id="textAnnonce7"></p>
+                    </div>
+                    <div class="card mb-5 mt-5" style="width: 30%; background-color: #F0F3F4;">
+                        <h2>Anonnce 8</h2>
+                        <p id="textShort8">Short description</p>
+                        <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;" id="selectAnnonce8">Learn More</button>
+                        <p id="textAnnonce8"></p>
+                    </div>
+                    <div class="card mb-5 mt-5" style="width: 30%; background-color: #F0F3F4;">
+                        <h2>Anonnce 9</h2>
+                        <p id="textShort9">Short description</p>
+                        <button class="btn btn-outline-dark mb-3" style="background-color: #2596BE; color: white;">Learn More</button>
+                        <p id="textAnnonce9"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item">
+              <a href="accueil.html" class="nav-link px-2 text-body-secondary">See all job announces</a>
+            </li>
+            <li class="nav-item">
+              <a href="see_my_annonces.html" class="nav-link px-2 text-body-secondary">See my annouces</a>
+            </li>
+            <li class="nav-item">
+              <a href="create_annonces.html" class="nav-link px-2 text-body-secondary">Create an announce</a>
+            </li>
+            <li class="nav-item">
+              <a href="Profile.html" class="nav-link px-2 text-body-secondary">Profile</a>
+            </li>
+          </ul>
+          <p class="text-center text-body-secondary">© 2023 Company, Inc</p>
+        </footer>
+    </div>
+    <script src="../mvc/view/Vannonce.js"></script>
+</body>
+</html>

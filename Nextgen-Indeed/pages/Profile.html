@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="accueil.css">
+    <title>Nextgen-Indeed</title>
+</head>
+<body>
+    <header class="d-flex mt-2" style="width: 100%; gap: 16%; align-items: center;">
+        <img src="image/HYde.png" style="width: 11%; float: top-left;">
+    </header>
+    <main>
+        <nav class="navbar navbar-expand-md navbar-light d-flex align-items-center" id="navbar-example2" style="background-color: #F0F3F4DE;">
+            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav navbar-nav nav-underline">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="accueil.html">See all job announces</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="see_my_annonces.html">See my annouces</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="create_annonces.html">Create an announce</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" aria-current="page" href="Profile.html">Profile</a>
+                    </li>
+                </ul>
+                <form class="d-flex mt-3 mb-3" role="search" style="margin-left: 48%;">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn border-none" style="background-color: #2596BE; color: white;" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="col-lg-8" style="margin-left: 15%;">
+                <div class="card mb-4 mt-4" style="background-color: #F0F3F4DE;">
+                    <div class="card-body text-center">
+                        <img src="image/avatar.webp" alt="avatar" class="rounded-circle img-fluid mb-4" style="width: 150px;">
+                        <div id="user">
+                            <p></p>
+                            <form action="../mvc/view/user.js" method="post" style="display: none;">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" size="20" maxlenght="25">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" size="20" maxlenght="50">
+                                <label for="pwd">Password</label>
+                                <input type="text" id="pwd" size="20" maxlenght="25">
+                            </form>
+                            <button id="modif">Modifier</button>
+                            <button id="supp">Supprimer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-15">
+                <div class="card mb-3" style="background-color: #F0F3F4DE;">
+                    <h2 class="mb-3 text-center">Job</h2>
+                    <ul class="nav" style="justify-content: space-around;">
+                        <li class="nav-item" id="profilePage">
+                            <!-- <h3>registered offers</h3>
+                            <p>The job offers you register are displayed here.</p>
+                            <ul class="list-group">
+                                <div id="annonce">
+                                    <button id="modif1">Modify</button>
+                                    <form action="../mvc/view/Vannonce.js" method="post" style="display: none;">
+                                        <label for="date">Date</label>
+                                        <input type="date" id="date" size="20" maxlenght="25">
+                                        <label for="short">Short description</label>
+                                        <input type="text" id="short" size="20" maxlenght="50">
+                                        <label for="adresse">adress</label>
+                                        <input type="text" id="adresse" size="20" maxlenght="25">
+                                    </form>
+                                    <button id="supp1">Delete</button>
+                                </div>
+                                <li class="list-group-item mb-3" id="textShort1">An item</li>
+                                <div id="annonce">
+                                    <button id="modif2">Modify</button>
+                                    <form action="../mvc/view/Vannonce.js" method="post" style="display: none;">
+                                        <label for="date">Date</label>
+                                        <input type="date" id="date" size="20" maxlenght="25">
+                                        <label for="short">Short description</label>
+                                        <input type="text" id="short" size="20" maxlenght="50">
+                                        <label for="adresse">adress</label>
+                                        <input type="text" id="adresse" size="20" maxlenght="25">
+                                    </form>
+                                    <button id="supp2">Delete</button>
+                                </div>
+                                <li class="list-group-item mb-3" id="textShort2">A second item</li>
+                                <div id="annonce">
+                                    <button id="modif3">Modify</button>
+                                    <form action="../mvc/view/Vannonce.js" method="post" style="display: none;">
+                                        <label for="date">Date </label>
+                                        <input type="date" id="date" size="20" maxlenght="25">
+                                        <label for="short">Short description</label>
+                                        <input type="text" id="short" size="20" maxlenght="50">
+                                        <label for="adresse">adress</label>
+                                        <input type="text" id="adresse" size="20" maxlenght="25">
+                                    </form>
+                                    <button id="supp3">Delete</button>
+                                </div>
+                                <li class="list-group-item mb-3" id="textShort3">A third item</li>
+                                <div id="annonce">
+                                    <button id="modif4">Modify</button>
+                                    <form action="../mvc/view/Vannonce.js" method="post" style="display: none;">
+                                        <label for="date">Date</label>
+                                        <input type="date" id="date" size="20" maxlenght="25">
+                                        <label for="short">Short description</label>
+                                        <input type="text" id="short" size="20" maxlenght="50">
+                                        <label for="adresse">adress</label>
+                                        <input type="text" id="adresse" size="20" maxlenght="25">
+                                    </form>
+                                    <button id="supp4">Delete</button>
+                                </div>
+                                <li class="list-group-item mb-3" id="textShort4">A fourth item</li>
+                                <div id="annonce">
+                                    <button id="modif5">Modify</button>
+                                    <form action="../mvc/view/Vannonce.js" method="post" style="display: none;">
+                                        <label for="date">Date</label>
+                                        <input type="date" id="date" size="20" maxlenght="25">
+                                        <label for="short">Short description</label>
+                                        <input type="text" id="short" size="20" maxlenght="50">
+                                        <label for="adresse">adress</label>
+                                        <input type="text" id="adresse" size="20" maxlenght="25">
+                                    </form>
+                                    <button id="supp5">Delete</button>
+                                </div>
+                                <li class="list-group-item mb-3" id="textShort5">A fifth one</li>
+                                <div id="annonce">
+                                    <button id="modif6">Modify</button>
+                                    <form action="../mvc/view/Vannonce.js" method="post" style="display: none;">
+                                        <label for="date">Date</label>
+                                        <input type="date" id="date" size="20" maxlenght="25">
+                                        <label for="short">Short description</label>
+                                        <input type="text" id="short" size="20" maxlenght="50">
+                                        <label for="adresse">adress</label>
+                                        <input type="text" id="adresse" size="20" maxlenght="25">
+                                    </form>
+                                    <button id="supp6">Delete</button>
+                                </div>
+                                <li class="list-group-item mb-3" id="textShort6">A sixth one</li>
+                                <div id="annonce">
+                                    <button id="modif7">Modify</button>
+                                    <form action="../mvc/view/Vannonce.js" method="post" style="display: none;">
+                                        <label for="date">Date</label>
+                                        <input type="date" id="date" size="20" maxlenght="25">
+                                        <label for="short">Short description</label>
+                                        <input type="text" id="short" size="20" maxlenght="50">
+                                        <label for="adresse">adress</label>
+                                        <input type="text" id="adresse" size="20" maxlenght="25">
+                                    </form>
+                                    <button id="supp7">Delete</button>
+                                </div>
+                                <li class="list-group-item mb-3" id="textShort7">A seventh one</li>
+                                <div id="annonce">
+                                    <button id="modif8">Modify</button>
+                                    <form action="../mvc/view/Vannonce.js" method="post" style="display: none;">
+                                        <label for="date">Date </label>
+                                        <input type="date" id="date" size="20" maxlenght="25">
+                                        <label for="short">Short description</label>
+                                        <input type="text" id="short" size="20" maxlenght="50">
+                                        <label for="adresse">adress</label>
+                                        <input type="text" id="adresse" size="20" maxlenght="25">
+                                    </form>
+                                    <button id="supp8">Delete</button>
+                                </div>
+                                <li class="list-group-item mb-3" id="textShort8">A eigth one</li>
+                            </ul>
+                        </li> -->
+                        <li class="nav-item">
+                            <h3>Applications sent</h3>
+                            <p>Use this section to keep track of your applications.</p>
+                            <ul class="list-group">
+                                <li class="list-group-item mb-3">An item</li>
+                                <li class="list-group-item mb-3">A second item</li>
+                                <li class="list-group-item mb-3">A third item</li>
+                                <li class="list-group-item mb-3">A fourth item</li>
+                                <li class="list-group-item mb-3">A fifth one</li>
+                                <li class="list-group-item mb-3">A sixth one</li>
+                                <li class="list-group-item mb-3">A seventh one</li>
+                                <li class="list-group-item mb-3">A eigth one</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item">
+              <a href="accueil.html" class="nav-link px-2 text-body-secondary">See all job announces</a>
+            </li>
+            <li class="nav-item">
+              <a href="see_my_annonces.html" class="nav-link px-2 text-body-secondary">See my annouces</a>
+            </li>
+            <li class="nav-item">
+              <a href="create_annonces.html" class="nav-link px-2 text-body-secondary">Create an announce</a>
+            </li>
+            <li class="nav-item">
+              <a href="Profile.html" class="nav-link px-2 text-body-secondary">Profile</a>
+            </li>
+          </ul>
+          <p class="text-center text-body-secondary">© 2023 Company, Inc</p>
+        </footer>
+    </div>
+    <script src="script/modify.js"></script>
+    <script src="../mvc/view/user.js"></script>
+    <script src="../mvc/view/Vannonce.js"></script>
+</body>
+</html>
