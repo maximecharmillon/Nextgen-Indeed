@@ -1,8 +1,5 @@
 let link= "http://localhost/Nextgen-Indeed/mvc/controler/Cuser.php";
 
-let user= find_userId()
-select_user(user);
-
 let createUser= document.getElementById("createUser")
 if(createUser!= null){
     
@@ -19,40 +16,62 @@ if(createUser!= null){
                 method: "POST",
                 mode: "cors",
                 body: insertUser
-            }).then((r)=> { console.log(r)
+            }).then((r)=> { 
+                select_userId(createUsername)
                 return r.text()
-            }).then((body)=> console.log(body))
-            select_userId(createUsername)
+            })
+
+            
         
-        // document.location.href="http://localhost/Nextgen-Indeed/pages/Profile.html"
+        //document.location.href="http://localhost/Nextgen-Indeed/pages/Profile.html"
             
     })
 }
 
+
+
 function select_userId(createUsername){
-        displayId = new FormData
-        displayId.append("user", createUsername)
-        fetch(link, {
-            methode: "fgffg",
+        let insertId
+        console.log(createUsername)
+        fetch(link+ "?createUserId="+ encodeURIComponent(createUsername), {
+            method: "GET",
             mode: "cors",
-            body: displayId
-        }).then((r)=> { console.log(r)
-            r.text()}
+        }).then((r)=> { 
+            return r.text()}
         ).then((body)=>{
-            console.log(body)
-        } )  
+            insert_id(body)
+            
+        } ) 
+        
+
 }
+function insert_id(insertId){
+    let insertData = new FormData
+        insertData.append("insertId", insertId)
+        fetch(link,{
+            method: "POST",
+            mode: "cors",
+            body: insertData
+        }).then((r)=> { 
+            return r.text()
+        })
+}
+
 function find_userId(){
     let display= 0
     fetch(link+ "?findId="+ encodeURIComponent(display), {
         method: "GET",
         mode: "cors", 
-    }).then((r)=> { console.log(r)
+    }).then((r)=> {
         return r.text()
-    }).then((body)=> {
-        console.log(body)
-    })
+    }).then((body) => {console.log(body)
+        return body})
 }
+
+let user= find_userId()
+console.log(user+ "=user")
+
+select_user(user);
 
     let signIn= document.getElementById("loginForm")
 if(signIn!= null){

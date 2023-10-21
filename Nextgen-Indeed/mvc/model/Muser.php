@@ -17,7 +17,6 @@ function insertUser($co, $user, $email, $pwd, $jobId, $table, $valUser, $valEmai
     $conn = $co;
 
     $sql= "INSERT INTO ". $table." ( ". $user. ", ". $email. ", ". $pwd. ", ". $jobId. " ) VALUES ( '". $valUser. "', '".  $valEmail. "', '".  $valPwd. "', '".  $valJobId. "' )";
-    echo $sql;
    
     $conn-> query($sql);
     
@@ -25,7 +24,7 @@ function insertUser($co, $user, $email, $pwd, $jobId, $table, $valUser, $valEmai
 
 function updateUser($co, $user, $email, $pwd, $table, $valUser, $valEmail, $valPwd, $userId, $valUserId){
     $sql= "UPDATE ". $table. " SET " .$user ."= '" .$valUser. "', ".$email ."= '" .$valEmail. "', ".$pwd ."= '" .$valPwd."' WHERE ". $userId. "='". $valUserId. "'";
-    echo $sql;
+    
     $co-> query($sql);
     
     if ($co-> query($sql) === TRUE)
@@ -42,7 +41,6 @@ function deleteUser($co , $table, $userId, $valUserId){
     $conn= $co;
 
     $sql= "DELETE FROM " .$table ." WHERE ". $userId. "=". $valUserId;
-    echo $sql;
 
     $conn-> query($sql);
 
@@ -50,17 +48,14 @@ function deleteUser($co , $table, $userId, $valUserId){
 
 function deleteId($co , $table){
     $conn= $co;
-
     $sql= "DELETE FROM " .$table ;
-    echo $sql+ " deleteId ";
 
     $conn-> query($sql);
 }
 
 function selectId($co, $user, $userId, $table, $valUser){
     $conn= $co;
-    $sql= "SELECT ".$userId ." FROM " .$table ." WHERE ". $user. "=". $valUser;
-    echo $sql+ " selectId ";
+    $sql= "SELECT ".$userId ." FROM " .$table ." WHERE ". $user. " = ". $valUser;
     $result= $conn-> query($sql);
     if( $result-> num_rows> 0)
     {
@@ -75,7 +70,7 @@ function insertId($co, $userId, $table, $valUserId){
     $conn = $co;
 
     $sql= "INSERT INTO ". $table." ( ". $userId. " ) VALUES ( '". $valUserId. "' )";
-    echo $sql+ " insertId ";
+    echo $sql;
    
     $conn-> query($sql);
     
@@ -84,7 +79,6 @@ function insertId($co, $userId, $table, $valUserId){
 function displayId($co, $userId, $table){
     $conn= $co;
     $sql= "SELECT ".$userId ." FROM " .$table ;
-    echo $sql+ " displayId ";
     $result= $conn-> query($sql);
     if( $result-> num_rows> 0)
     {

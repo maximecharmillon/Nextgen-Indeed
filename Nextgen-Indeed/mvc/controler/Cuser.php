@@ -18,12 +18,9 @@ if(isset($_GET["selectUser"]))
     echo (selectUser ($co, "USER", "EMAIL", "PWD", "USER_ID", "JOB_ID", "USERS", $userId));
 }
 
-if(isset($_POST["insertUser"]))
-{   echo "chat";
+if(isset($_POST["user"]))
+{   
     echo (insertUser ($co, "USER","EMAIL", "PWD", "JOB_ID", "USERS", ($_POST["user"]), ($_POST["email"]), ($_POST["pwd"]), ($_POST["jobId"])));
-    
-    header("Location:http://localhost/Nextgen-Indeed/pages/accueil.html");
-    exit();
     // a revoir
 }
 
@@ -39,12 +36,19 @@ if(isset($_GET["deleteId"]))
 }
 
 
-if(isset($_POST["displayId"]))
+if(isset($_GET["createUserId"]))
+{   
+    $id= $_GET["createUserId"];
+    echo (deleteId( $co, "IDS"));
+    $requestSelect= (selectId ( $co, "USER", "USER_ID", "USERS", $id));
+    echo $requestSelect;
+    
+} 
+if(isset($_POST["insertId"]))
 {
-    $requestDelete= (deleteId( $co, "IDS"));
-    $requestSelect= (selectId( $co, "USER", "USER_ID", "USERS", $_POST["displayId"]));
-    $requestInsert= (insertId($co, "ID", "IDS", $requestSelect ));
+    echo (insertId ($co, "ID", "IDS", $_POST["insertId"] ));
 }
+
 if(isset($_GET["findId"]))
 {
     echo (displayId( $co, "ID", "IDS"));
@@ -52,30 +56,30 @@ if(isset($_GET["findId"]))
 
 
 
-if (($_SERVER['REQUEST_METHOD'] === 'POST') !== null) {
-    $data = ($_SERVEUR['REQUEST_METHOD']);
+// if (($_SERVER['REQUEST_METHOD'] === 'POST') !== null) {
+//     $data = ($_SERVEUR['REQUEST_METHOD']);
 
-    $username = $data['username'];
-    $password = $data['pwd'];
-    $query = "SELECT PWD FROM USERS WHERE User_Name = "+ $username;
-    $value = $co->prepare($query);
-    $value->bind_param("s", $username); 
-    $value->execute();
-    $result = $value->get_result();
-    $user = $result->fetch_assoc();
+//     $username = $data['username'];
+//     $password = $data['pwd'];
+//     $query = "SELECT PWD FROM USERS WHERE User_Name = "+ $username;
+//     $value = $co->prepare($query);
+//     $value->bind_param("s", $username); 
+//     $value->execute();
+//     $result = $value->get_result();
+//     $user = $result->fetch_assoc();
 
-    // var_dump($user);
+//     // var_dump($user);
 
-    if ($password === $user['PWD']) {
-        echo json_encode(['success' => true]);
-    } else {
-        echo json_encode(['success' => false]);
-    }
+//     if ($password === $user['PWD']) {
+//         echo json_encode(['success' => true]);
+//     } else {
+//         echo json_encode(['success' => false]);
+//     }
 
 
 
-    $value->close();
-    $co->close();
-}
+//     $value->close();
+//     $co->close();
+// }
 
-?>
+// ?>
