@@ -13,7 +13,7 @@ function selectUser($co, $user, $email, $pwd, $userId, $jobId, $table, $valUserI
     }
 }
 
-function insertUSer($co, $user, $email, $pwd, $jobId, $table, $valUser, $valEmail, $valPwd, $valJobId){
+function insertUser($co, $user, $email, $pwd, $jobId, $table, $valUser, $valEmail, $valPwd, $valJobId){
     $conn = $co;
 
     $sql= "INSERT INTO ". $table." ( ". $user. ", ". $email. ", ". $pwd. ", ". $jobId. " ) VALUES ( '". $valUser. "', '".  $valEmail. "', '".  $valPwd. "', '".  $valJobId. "' )";
@@ -46,6 +46,53 @@ function deleteUser($co , $table, $userId, $valUserId){
 
     $conn-> query($sql);
 
+}
+
+function deleteId($co , $table){
+    $conn= $co;
+
+    $sql= "DELETE FROM " .$table ;
+    echo $sql+ " deleteId ";
+
+    $conn-> query($sql);
+}
+
+function selectId($co, $user, $userId, $table, $valUser){
+    $conn= $co;
+    $sql= "SELECT ".$userId ." FROM " .$table ." WHERE ". $user. "=". $valUser;
+    echo $sql+ " selectId ";
+    $result= $conn-> query($sql);
+    if( $result-> num_rows> 0)
+    {
+        while( $r= $result-> fetch_assoc())
+        {
+            echo $r[$userId];
+        }
+    }
+}
+
+function insertId($co, $userId, $table, $valUserId){
+    $conn = $co;
+
+    $sql= "INSERT INTO ". $table." ( ". $userId. " ) VALUES ( '". $valUserId. "' )";
+    echo $sql+ " insertId ";
+   
+    $conn-> query($sql);
+    
+}
+
+function displayId($co, $userId, $table){
+    $conn= $co;
+    $sql= "SELECT ".$userId ." FROM " .$table ;
+    echo $sql+ " displayId ";
+    $result= $conn-> query($sql);
+    if( $result-> num_rows> 0)
+    {
+        while( $r= $result-> fetch_assoc())
+        {
+            echo $r[$userId];
+        }
+    }
 }
 
 ?>

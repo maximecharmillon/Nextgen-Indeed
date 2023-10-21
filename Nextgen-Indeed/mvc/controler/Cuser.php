@@ -18,8 +18,8 @@ if(isset($_GET["selectUser"]))
     echo (selectUser ($co, "USER", "EMAIL", "PWD", "USER_ID", "JOB_ID", "USERS", $userId));
 }
 
-if(isset($_POST["user"]))
-{   
+if(isset($_POST["insertUser"]))
+{   echo "chat";
     echo (insertUser ($co, "USER","EMAIL", "PWD", "JOB_ID", "USERS", ($_POST["user"]), ($_POST["email"]), ($_POST["pwd"]), ($_POST["jobId"])));
     
     header("Location:http://localhost/Nextgen-Indeed/pages/accueil.html");
@@ -37,6 +37,20 @@ if(isset($_GET["deleteId"]))
     $userId= $_GET["deleteId"];
     echo (deleteUser ($co, "USERS", "USER_ID", $userId ));
 }
+
+
+if(isset($_POST["displayId"]))
+{
+    $requestDelete= (deleteId( $co, "IDS"));
+    $requestSelect= (selectId( $co, "USER", "USER_ID", "USERS", $_POST["displayId"]));
+    $requestInsert= (insertId($co, "ID", "IDS", $requestSelect ));
+}
+if(isset($_GET["findId"]))
+{
+    echo (displayId( $co, "ID", "IDS"));
+}
+
+
 
 if (($_SERVER['REQUEST_METHOD'] === 'POST') !== null) {
     $data = ($_SERVEUR['REQUEST_METHOD']);
@@ -57,6 +71,8 @@ if (($_SERVER['REQUEST_METHOD'] === 'POST') !== null) {
     } else {
         echo json_encode(['success' => false]);
     }
+
+
 
     $value->close();
     $co->close();

@@ -1,7 +1,7 @@
 let link= "http://localhost/Nextgen-Indeed/mvc/controler/Cuser.php";
 
-let user= select_userId()
-select_user();
+let user= find_userId()
+select_user(user);
 
 let createUser= document.getElementById("createUser")
 if(createUser!= null){
@@ -14,39 +14,44 @@ if(createUser!= null){
         insertUser.append("user", createUsername)
         insertUser.append("pwd", createPwd)
         insertUser.append("email", createEmail)
-        insertUser.append("jobId", null)
+        insertUser.append("jobId", 0)
             fetch(link,{
                 method: "POST",
                 mode: "cors",
                 body: insertUser
-            }).then((r)=> { 
+            }).then((r)=> { console.log(r)
                 return r.text()
-            })
-          
-        document.location.href="http://localhost/Nextgen-Indeed/pages/Profile.html"
+            }).then((body)=> console.log(body))
+            select_userId(createUsername)
+        
+        // document.location.href="http://localhost/Nextgen-Indeed/pages/Profile.html"
             
     })
 }
 
 function select_userId(createUsername){
         displayId = new FormData
-        displayId.append("user", createUser)
+        displayId.append("user", createUsername)
         fetch(link, {
-            methode: "POST",
+            methode: "fgffg",
             mode: "cors",
             body: displayId
-        })
-        let displayUsername= 0
-        fetch(link+ "?selectUserId="+ encodeURIComponent(displayUsername), {
-            method: "GET",
-            mode: "cors", 
-        }).then((r)=> { return r.text()
-        }).then((body)=> {
-
-            return body
-            
-        })
-        
+        }).then((r)=> { console.log(r)
+            r.text()}
+        ).then((body)=>{
+            console.log(body)
+        } )  
+}
+function find_userId(){
+    let display= 0
+    fetch(link+ "?findId="+ encodeURIComponent(display), {
+        method: "GET",
+        mode: "cors", 
+    }).then((r)=> { console.log(r)
+        return r.text()
+    }).then((body)=> {
+        console.log(body)
+    })
 }
 
     let signIn= document.getElementById("loginForm")
@@ -54,6 +59,7 @@ if(signIn!= null){
     
     signIn.addEventListener("click", function(){
         let connUser= document.getElementById("username").value
+        select_userId(connUser)
         fetch(link+ "?selectUserId="+ encodeURIComponent(connUser), {
             method: "GET",
             mode: "cors", 
@@ -67,8 +73,8 @@ if(signIn!= null){
 }
 
 
-function select_user(){
-    let userId= select_userId()
+function select_user(user){
+    let userId= user
 fetch(link+ "?selectUser="+ encodeURIComponent(userId), {
     method: "GET",
     mode: "cors", 
