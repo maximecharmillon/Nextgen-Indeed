@@ -2,7 +2,7 @@ let link= "http://localhost/Nextgen-Indeed/mvc/controler/Cuser.php";
 
 let createUser= document.getElementById("createUser")
 if(createUser!= null){
-    
+    console.log()
     createUser.addEventListener("click", function(){
         let createUsername= document.getElementById("createUsername").value
         let createEmail= document.getElementById("createEmail").value
@@ -18,28 +18,26 @@ if(createUser!= null){
                 body: insertUser
             }).then((r)=> { 
                 select_userId(createUsername)
-                return r.text()
-            })
+                //return document.location.href="http://localhost/Nextgen-Indeed/pages/Profile.html"
 
-            
-        
-        //document.location.href="http://localhost/Nextgen-Indeed/pages/Profile.html"
+            })
             
     })
 }
 
 
-
 function select_userId(createUsername){
-       
-        console.log(createUsername)
-        fetch(link+ "?createUserId="+ encodeURIComponent(createUsername), {
-            method: "GET",
+        let createUserID= new FormData
+        createUserID.append("id", createUsername)
+        fetch(link, {
+            method: "POST",
             mode: "cors",
+            body: createUserID
         }).then((r)=> { 
             return r.text()}
         ).then((body)=>{
             insert_id(body)
+            
             
         } ) 
         
@@ -69,7 +67,10 @@ function find_userId(){
         id.setAttribute("id", "theId")
         id.innerText= body
         id.style.fontSize= "10px"
-        document.querySelector("main").appendChild(id)
+        let theId= document.querySelector("main")
+        if(theId!= null){
+            theId.appendChild(id)
+        }
         let user = id.innerText
 
         select_user(user)
@@ -81,7 +82,7 @@ function find_userId(){
             if(getComputedStyle(form).display == "none"){
                 form.style.display = "block";
                 buttonModif.innerHTML= "Send";
-                update_user();
+                update_user(user);
                 }
             else{
                 form.style.display = "none";
@@ -96,7 +97,7 @@ function find_userId(){
             buttonSupp.addEventListener("click", function(){
                 if(buttonSupp.innerHTML== "Delete"){
                     buttonSupp.innerHTML= "Are you sure !";
-                    delete_user();
+                    delete_user(user);
                     }
                 else{
                     
@@ -145,29 +146,32 @@ fetch(link+ "?selectUser="+ encodeURIComponent(userId), {
 
 
 
-function update_user(){
-    buttonModif.addEventListener("click", function(){
-        let username= document.getElementById("username").value
-        let email= document.getElementById("email").value
-        let pwd= document.getElementById("pwd").value
-        let updateUser= new FormData
-        updateUser.append("updateUser", username)
-        updateUser.append("updateEmail", email)
-        updateUser.append("updatePwd", pwd)
-        updateUser.append("updateUserId", user)
-    
-        fetch(link, {
-            method: "POST",  
-            mode: "cors",
-            body: updateUser
-        }).then ((r)=> { 
-            return r.text()
-        })
-    }) 
-    location.reload()  
-    }
+function update_user(userId){
+    let buttonModif= document.querySelector("#user #modif")
+    if (buttonModif!= null){
+        buttonModif.addEventListener("click", function(){
+            let username= document.getElementById("username").value
+            let email= document.getElementById("email").value
+            let pwd= document.getElementById("pwd").value
+            let updateUser= new FormData
+            updateUser.append("updateUser", username)
+            updateUser.append("updateEmail", email)
+            updateUser.append("updatePwd", pwd)
+            updateUser.append("updateUserId", userId)
+        
+            fetch(link, {
+                method: "POST",  
+                mode: "cors",
+                body: updateUser
+            }).then ((r)=> { 
+                console.log(r.text)
+                return location.reload()
+            })
+        }) 
+    } 
+}
 
-function delete_user(){
+function delete_user(user){
     buttonSupp.addEventListener("click", function(){
             let deleteId= user
             fetch(link+ "?deleteId="+ deleteId, {

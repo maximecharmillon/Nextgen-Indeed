@@ -36,12 +36,11 @@ if(isset($_GET["deleteId"]))
 }
 
 
-if(isset($_GET["createUserId"]))
+if(isset($_POST["id"]))
 {   
-    $id= $_GET["createUserId"];
     echo (deleteId( $co, "IDS"));
-    $requestSelect= (selectId ( $co, "USER", "USER_ID", "USERS", $id));
-    echo $requestSelect;
+    echo (selectId ( $co, "USER", "USER_ID", "USERS", $_POST["id"]));
+    
     
 } 
 if(isset($_POST["insertId"]))
