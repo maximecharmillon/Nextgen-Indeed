@@ -55,30 +55,24 @@ if(isset($_GET["findId"]))
 
 
 
-// if (($_SERVER['REQUEST_METHOD'] === 'POST') !== null) {
-//     $data = ($_SERVEUR['REQUEST_METHOD']);
+if (isset($_POST["pwd"])) {
 
-//     $username = $data['username'];
-//     $password = $data['pwd'];
-//     $query = "SELECT PWD FROM USERS WHERE User_Name = "+ $username;
-//     $value = $co->prepare($query);
-//     $value->bind_param("s", $username); 
-//     $value->execute();
-//     $result = $value->get_result();
-//     $user = $result->fetch_assoc();
+    $username = $data['username'];
+    
+    $query = "SELECT PWD FROM USERS WHERE User_Name = "+ $username;
+    $value = $co->prepare($query);
+    $value->bind_param("s", $username); 
+    $value->execute();
+    $result = $value->get_result();
+    $user = $result->fetch_assoc();
 
-//     // var_dump($user);
-
-//     if ($password === $user['PWD']) {
-//         echo json_encode(['success' => true]);
-//     } else {
-//         echo json_encode(['success' => false]);
-//     }
+    // var_dump($user);
+    echo $user["PWD"];
 
 
 
-//     $value->close();
-//     $co->close();
-// }
+    $value->close();
+    $co->close();
+}
 
-// ?>
+?>

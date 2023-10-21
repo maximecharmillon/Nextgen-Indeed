@@ -18,7 +18,7 @@ if(createUser!= null){
                 body: insertUser
             }).then((r)=> { 
                 select_userId(createUsername)
-                //return document.location.href="http://localhost/Nextgen-Indeed/pages/Profile.html"
+                return document.location.href="http://localhost/Nextgen-Indeed/pages/Profile.html"
 
             })
             
@@ -197,12 +197,12 @@ if(password!= null){
                 mode: "cors",
                 body: { username, password },
                 
-            })
-            .then(res => res.text)
-            .then(data => {
-                (body)=> console.log((body))
-                if (data.success) {
-                    window.location.href = "../../pages/accueil.html";
+            }).then((res) => {
+                return res.text()
+            }).then((body) => {
+                 console.log((body, password))
+                if (password == body) {
+                    document.location.href="http://localhost/Nextgen-Indeed/pages/accueil.html"
                 } else {
                     let fail= document.getElementById("message")
                     if(fail!= null)
