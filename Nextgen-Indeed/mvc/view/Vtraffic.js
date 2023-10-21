@@ -1,4 +1,4 @@
-let link = "http://localhost/config/CApply.php";
+let linkt = "http://localhost/Nextgen-Indeed/mvc/controler/Ctraffic.php";
 
 let FormApply1 = document.getElementById("form1");
 let FormSend1 = document.getElementById("SendApply1");
@@ -18,7 +18,7 @@ if(FormApply1!=null){
         insert.append("corpo","AVISTO");
         insert.append("job_id",1);
 
-        fetch(link,{
+        fetch(linkt,{
             method:"POST",
             mode: "cors",
             body: insert
@@ -46,7 +46,7 @@ if(FormApply2!=null){
         insert2.append("corpo","Capgemini");
         insert2.append("job_id",2);
 
-        fetch(link,{
+        fetch(linkt,{
             method:"POST",
             mode: "cors",
             body: insert2
@@ -58,9 +58,9 @@ if(FormApply2!=null){
 
 function select_message(x){
     let selectMessageValue = x;
-    linka = link +'?Selectmessage=' + encodeURIComponent(selectMessageValue);
+    linkb = linkt +'?Selectmessage=' + encodeURIComponent(selectMessageValue);
 
-    fetch(linka, {
+    fetch(linkb, {
         method: "GET",
         mode: "cors"
     })
@@ -93,7 +93,7 @@ function update_message(){
     insertUpdate.append("job_id",1);
 
 
-    fetch(link, {
+    fetch(linkt, {
         method: "POST",  
         mode: "cors",
         body: insertUpdate
@@ -105,9 +105,9 @@ function update_message(){
 function delet_message(){
 
     let selectDeleteValue = x;
-    linkb = link +'?Selectdelete=' + encodeURIComponent(selectDeleteValue);
+    linkc = linkt +'?Selectdelete=' + encodeURIComponent(selectDeleteValue);
 
-    fetch(linkb, {
+    fetch(linkc, {
         method: "GET",  
         mode: "cors",
     }).then((r) => {

@@ -1,3 +1,4 @@
+let linkc= "http://localhost/Nextgen-Indeed/mvc/controler/Cuser.php"
 
 let namecorp = document.getElementById("corpname");
 let corpId = document.getElementById("Id");
@@ -16,7 +17,7 @@ function Create() {
     createCorps.append("User_Id", employeeId.value)
     createCorps.append("Job_Id", advId.value)
 
-    fetch ("http://localhost/CRUD_CORPS/controler.php", {
+    fetch (linkc, {
         method : "POST",
         body : createCorps, 
         mode : "cors"
@@ -32,7 +33,7 @@ function Create() {
 
 function Read () {
     
-    fetch("http://localhost/CRUD_CORPS/controler.php" + "?selectCorp="+ encodeURIComponent(namecorp), {
+    fetch(linkc + "?selectCorp="+ encodeURIComponent(namecorp), {
         method: "GET",
         mode: "cors", 
     }).then((response)=> { return response.text()
@@ -54,7 +55,7 @@ function Update() {
         NEW_EMAIL: NewEmailCorp.value,
     };
 
-    fetch("http://localhost/CRUD_CORPS/controler.php?updateCorp=true", {
+    fetch(linkc, {
         method: 'PUT',
         body: JSON.stringify(data),
         mode: "cors",
@@ -71,7 +72,7 @@ function Update() {
 }
 
 function Delete () {
-    fetch(url, {
+    fetch(linkc, {
         method: 'DELETE',
         mode : "cors",
       }) .then(response => {

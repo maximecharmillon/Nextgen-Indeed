@@ -1,8 +1,8 @@
 <?php
 
     $serveur = "localhost";
-    $user = "phpmyadmin";
-    $pwd = "Mmjf_Indeed2023";
+    $user = "parisi";
+    $pwd = "22222Mm@";
     $db = "NEXTGEN";
 
     $co = new mysqli($serveur, $user, $pwd, $db);
@@ -11,7 +11,7 @@
         echo 'Not connected to the database';
     }
 
-    require 'MApply.php';
+    require '../model/Mtraffic.php';
 
 
     if(isset($_POST["username"])){

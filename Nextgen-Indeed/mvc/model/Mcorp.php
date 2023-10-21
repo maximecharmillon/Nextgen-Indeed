@@ -1,8 +1,8 @@
 <?php
 
 $serveur= "localhost";
-$user= "phpmyadmin";
-$pwd= "bddpass123";
+$user= "parisi";
+$pwd= "22222Mm@";
 $db= "NEXTGEN";
 
 $co= new mysqli($serveur, $user, $pwd, $db);
