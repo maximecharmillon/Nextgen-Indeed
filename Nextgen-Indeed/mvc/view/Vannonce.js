@@ -74,7 +74,6 @@ function update_annonce(x){
 
 function modif_annonce(x){
     let modifAnnonce= document.querySelector(" #modif"+x)
-    console.log(modifAnnonce)
     if (modifAnnonce!= null){
         let form= document.querySelector("#formUpdate"+x)
         modifAnnonce.addEventListener("click", function(){

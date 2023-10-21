@@ -31,7 +31,7 @@ if(createUser!= null){
 
 
 function select_userId(createUsername){
-        let insertId
+       
         console.log(createUsername)
         fetch(link+ "?createUserId="+ encodeURIComponent(createUsername), {
             method: "GET",
@@ -64,14 +64,51 @@ function find_userId(){
         mode: "cors", 
     }).then((r)=> {
         return r.text()
-    }).then((body) => {console.log(body)
-        return body})
+    }).then((body)=>{ 
+        let id= document.createElement("p")
+        id.setAttribute("id", "theId")
+        id.innerText= body
+        id.style.fontSize= "10px"
+        document.querySelector("main").appendChild(id)
+        let user = id.innerText
+
+        select_user(user)
+
+        let buttonModif= document.querySelector("#user #modif")
+        if (buttonModif!= null){
+            let form= document.querySelector("#user form")
+        buttonModif.addEventListener("click", function(){
+            if(getComputedStyle(form).display == "none"){
+                form.style.display = "block";
+                buttonModif.innerHTML= "Send";
+                update_user();
+                }
+            else{
+                form.style.display = "none";
+                buttonModif.innerHTML= "Modify";
+            } 
+        })
+        }
+
+
+        let buttonSupp= document.querySelector("#user #supp")
+        if(buttonSupp!= null){
+            buttonSupp.addEventListener("click", function(){
+                if(buttonSupp.innerHTML== "Delete"){
+                    buttonSupp.innerHTML= "Are you sure !";
+                    delete_user();
+                    }
+                else{
+                    
+                    buttonSupp.innerHTML= "Delete";
+                } 
+            })
+        }
+    })
+        
 }
 
-let user= find_userId()
-console.log(user+ "=user")
-
-select_user(user);
+find_userId()
 
     let signIn= document.getElementById("loginForm")
 if(signIn!= null){
@@ -103,7 +140,6 @@ fetch(link+ "?selectUser="+ encodeURIComponent(userId), {
     if(getUser!= null){
         getUser.innerHTML= body;
     }
-    
 })
 }
 
@@ -139,40 +175,6 @@ function delete_user(){
             }).then((alert("deleting done")))
         })
     }
-        
-
-
-
-let buttonModif= document.querySelector("#user #modif")
-if (buttonModif!= null){
-    let form= document.querySelector("#user form")
-buttonModif.addEventListener("click", function(){
-    if(getComputedStyle(form).display == "none"){
-        form.style.display = "block";
-        buttonModif.innerHTML= "Send";
-        update_user();
-        }
-    else{
-        form.style.display = "none";
-        buttonModif.innerHTML= "Modify";
-    } 
-})
-}
-
-
-let buttonSupp= document.querySelector("#user #supp")
-if(buttonSupp!= null){
-    buttonSupp.addEventListener("click", function(){
-        if(buttonSupp.innerHTML== "Delete"){
-            buttonSupp.innerHTML= "Are you sure !";
-            delete_user();
-            }
-        else{
-            
-            buttonSupp.innerHTML= "Delete";
-        } 
-    })
-}
 
 
 
