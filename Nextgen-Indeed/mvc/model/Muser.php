@@ -55,7 +55,7 @@ function deleteId($co , $table){
 
 function selectId($co, $user, $userId, $table, $valUser){
     $conn= $co;
-    $sql= "SELECT ".$userId ." FROM " .$table ." WHERE ". $user. " = ". $valUser;
+    $sql= "SELECT ".$userId ." FROM " .$table ." WHERE ". $user. " = '". $valUser. "'";
     $result= $conn-> query($sql);
     if( $result-> num_rows> 0)
     {

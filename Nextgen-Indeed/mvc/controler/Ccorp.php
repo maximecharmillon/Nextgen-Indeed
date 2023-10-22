@@ -1,38 +1,43 @@
 <?php
 
-$host = 'localhost';
-$username = 'phpmyadmin';
-$password = 'bddpass123';
-$database = 'Nextgen';
+    $serveur = "localhost";
+    $user = "parisi";
+    $pwd = "22222Mm@";
+    $db = "NEXTGEN";
 
-$co= new mysqli($host, $username, $password, $database);
+    $co = new mysqli($serveur, $user, $pwd, $db);
 
-if ($co->connect_error) {
-    die("Connection failed: " . $co->connect_error);
-}
-
-if (($_SERVER['REQUEST_METHOD'] === 'POST') !== null) {
-    $data = json_decode(file_get_contents('php://input'), true);
-
-    $username = $data['username'];
-    $password = $data['password'];
-
-    $query = "SELECT User_Name, Pwd, Id FROM USER WHERE User_Name = ? LIMIT 1";
-    $value = $co->prepare($query);
-    $value->bind_param("s", $username); 
-    $value->execute();
-    $result = $value->get_result();
-    $user = $result->fetch_assoc();
-
-    // var_dump($user);
-
-    if ($password === $user['Pwd']) {
-        echo json_encode(['success' => true]);
-    } else {
-        echo json_encode(['success' => false]);
+    if(!$co){
+        echo 'Not connected to the database';
     }
 
-    $value->close();
-    $co->close();
+    require '../model/Mcorp.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET["createCorps"])) {
+ 
+ CreateCorp($co, $_POST["CORP"], $_POST["JOB_ID"], $_POST["EMAIL"], $_POST["USER_ID"]);
+
+ echo "Corporation created successfully";
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET["readCorp"])) {
+
+ ReadCorp($co, $NameCorp, $Job_Id, $E_mail, $User_Id);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'PUT' && isset($_GET["updateCorp"])) {
+
+ $data = json_decode(file_get_contents('php://input'), true);
+ UpdateCorps($co, $data['CORP'], $data['EMAIL'], $data['NEW_CORP'], $data['NEW_EMAIL']);
+
+ echo "Corporation updated successfully";
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && isset($_GET["deleteCorp"])) {
+
+ DeleteCorp($co, $NameCorp, $Id, $Job_Id, $E_mail, $User_Id);
+
+ echo "Corporation deleted successfully";
+}
+
 ?>

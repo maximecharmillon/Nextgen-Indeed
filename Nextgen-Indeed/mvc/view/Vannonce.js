@@ -1,3 +1,5 @@
+import { create_message } from "../view/Vtraffic"
+
 let linka= "http://localhost/Nextgen-Indeed/mvc/controler/Cannonce.php"
 
 
@@ -191,43 +193,31 @@ fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
         fullDesc.setAttribute("id", "textAnnonce"+body[i])
         fullDesc.innerText= ""
         let apply= document.createElement("button")
-        apply.setAttribute("id", "buttonApply"+body[i])
+        apply.setAttribute("id", "sendApply"+body[i])
         apply.innerText= "Apply"
         apply.style.backgroundColor= "#2596BE";
         apply.style.color= "white";
         apply.style.borderRadius= "10px";
         let formApply= document.createElement("form")
-        formApply.setAttribute("id", "form")
+        formApply.setAttribute("id", "form"+body[i])
             let labelUser= document.createElement("label")
-            labelUser.setAttribute("for", "username")
-            labelUser.innerText= "Username"
+                labelUser.setAttribute("for", "username"+body[i])
+                labelUser.innerText= "Username"
             let inputUser= document.createElement("input")
-            inputUser.setAttribute("type", "text")
-            inputUser.setAttribute("id", "username")
-            let labelEmail= document.createElement("label")
-            labelEmail.setAttribute("for", "email")
-            labelEmail.innerText= "email"
-            let inputEmail= document.createElement("input")
-            inputEmail.setAttribute("type", "text")
-            inputEmail.setAttribute("id", "email")
-            let labelPhone= document.createElement("label")
-            labelPhone.setAttribute("for", "phone")
-            labelPhone.innerText= "Phone"
-            let inputPhone= document.createElement("input")
-            inputPhone.setAttribute("type", "tel")
-            inputPhone.setAttribute("id", "phone")
+                inputUser.setAttribute("type", "text")
+                inputUser.setAttribute("id", "username"+body[i])
             let labelDate= document.createElement("label")
-            labelDate.setAttribute("for", "date")
-            labelDate.innerText= "Date"
+                labelDate.setAttribute("for", "createDate"+body[i])
+                labelDate.innerText= "Date"
             let inputDate= document.createElement("input")
-            inputDate.setAttribute("type", "date")
-            inputDate.setAttribute("id", "date")
+                inputDate.setAttribute("type", "date")
+                inputDate.setAttribute("id", "createDate"+body[i])
             let labelMessage= document.createElement("label")
-            labelMessage.setAttribute("for", "message")
-            labelMessage.innerText= "Message"
+                labelMessage.setAttribute("for", "message"+body[i])
+                labelMessage.innerText= "Message"
             let inputMessage= document.createElement("textarea")
-            inputMessage.setAttribute("type", "text")
-            inputMessage.setAttribute("id", "message")
+                inputMessage.setAttribute("type", "text")
+                inputMessage.setAttribute("id", "message"+body[i])
         let acceuil= document.querySelector("#acceuil")
         if(acceuil!= null){
             document.querySelector("#acceuil").appendChild(title)
@@ -238,16 +228,12 @@ fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
             document.querySelector("#acceuil").appendChild(formApply)
             apply.addEventListener("click", function(){
             if(apply.innerText== "Apply"){
-                document.querySelector("#form").appendChild(labelUser)
-                document.querySelector("#form").appendChild(inputUser)
-                document.querySelector("#form").appendChild(labelEmail)
-                document.querySelector("#form").appendChild(inputEmail)
-                document.querySelector("#form").appendChild(labelPhone)
-                document.querySelector("#form").appendChild(inputPhone)
-                document.querySelector("#form").appendChild(labelDate)
-                document.querySelector("#form").appendChild(inputDate)
-                document.querySelector("#form").appendChild(labelMessage)
-                document.querySelector("#form").appendChild(inputMessage)  
+                document.querySelector("#form"+body[i]).appendChild(labelUser)
+                document.querySelector("#form"+body[i]).appendChild(inputUser)
+                document.querySelector("#form"+body[i]).appendChild(labelDate)
+                document.querySelector("#form"+body[i]).appendChild(inputDate)
+                document.querySelector("#form"+body[i]).appendChild(labelMessage)
+                document.querySelector("#form"+body[i]).appendChild(inputMessage)  
                 apply.innerText= "Send"
                 formApply.style.display= "block";
             }
@@ -260,6 +246,7 @@ fetch(linka+ "?displayAnnonce="+ encodeURIComponent(displayAnnonce), {
         select_annonce(body[i])
         let br= document.createElement("br")
         document.querySelector("#acceuil").appendChild(br)
+        create_message()
         }
         
    
