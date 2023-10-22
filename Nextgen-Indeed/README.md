@@ -26,7 +26,7 @@ For most of the pages we added small javascript script for a more dynamic page :
 - **Apply.js** this sscript is for the pages *acceuil.html* and *see_my_annonces.html* for our job adverts
 - **modify.js** this script is for the *Profile* page, the user will be able to modify is info.
 - **salary.js**  this script is for the *create an annonces* page so that HR who is creating is advert can easly choose the salary with the boostrap range and the script display it.
-# Nextgen-Indeed
+# Back-end
 First Epitech project, create the new Indeed
 
 1. How to run code
